@@ -13,6 +13,7 @@
     "@headlessui/vue": "^1.7.19",
     "@heroicons/vue": "^2.1.1",
     "@iconify/icons-heroicons-solid": "^1.2.6",
+    "@nuxtjs/dotenv": "^1.4.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-vue-next": "^0.354.0",

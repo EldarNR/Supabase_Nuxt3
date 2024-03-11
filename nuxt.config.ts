@@ -26,4 +26,18 @@ export default defineNuxtConfig({
        */
     },
   ],
+  supabase: {
+    // Options
+    redirectOptions: {
+      login: "/auth",
+      callback: "/confirm",
+      exclude: ["/"],
+    },
+  },
+  runtimeConfig: {
+    public: {
+      URL: process.env.SUPABASE_URL,
+      KEY: process.env.SUPABASE_KEY,
+    },
+  },
 });

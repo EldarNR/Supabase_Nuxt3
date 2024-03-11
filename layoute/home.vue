@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto my-3 bg-white">
+    <div class="container my-3 bg-white">
         <div class="flex isolate px-6 pt-14 lg:px-8">
 
             <div class="w-1/2 py-32 sm:py-48 sm:w-100 lg:py-56 ">
