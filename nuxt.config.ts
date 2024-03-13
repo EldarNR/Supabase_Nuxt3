@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/supabase"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "@nuxtjs/supabase",
+    "@pinia/nuxt",
+  ],
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -33,6 +38,9 @@ export default defineNuxtConfig({
       callback: "/confirm",
       exclude: ["/"],
     },
+  },
+  pinia: {
+    storesDirs: ["./stores/**"],
   },
   runtimeConfig: {
     public: {

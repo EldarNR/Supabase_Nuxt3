@@ -44,12 +44,7 @@
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{
             item.name }}</a>
             </div>
-            <div class="py-6">
-              <NuxtLink to="/auth"
-                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                Log
-                in</NuxtLink>
-            </div>
+            <Log />
           </div>
         </div>
       </DialogPanel>
@@ -61,20 +56,21 @@
 import { defineComponent, ref } from 'vue';
 import { Dialog, DialogPanel } from "@headlessui/vue"
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import Log from '../nav_components/log_components.vue';
 export default defineComponent({
   components: {
     Dialog,
     DialogPanel,
     Bars3Icon,
-    XMarkIcon
+    XMarkIcon,
+    Log
   },
   setup() {
-    const navigation = [
-      { name: "Home", href: "/" },
-      { name: "Shop", href: "/store" },
-      { name: "About", href: "/about" },
-
-    ];
+    const navigation = ref([
+      { name: 'Home', href: '/' },
+      { name: 'About', href: '/about' },
+      // Add more navigation items here
+    ]);
     const mobileMenuOpen = ref(false); // This line creates a Vue ref named mobileMenuOpen and initializes it to false.
     return {
       navigation, mobileMenuOpen

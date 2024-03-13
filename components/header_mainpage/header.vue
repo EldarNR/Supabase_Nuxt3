@@ -1,6 +1,6 @@
 <template>
-  <div class="container my-3 bg-white">
-    <div class="flex isolate px-6 pt-14 lg:px-8">
+  <div class="container rounded-md shadow p-2">
+    <div class="flex items-center justify-center isolate px-6 pt-14 lg:px-8">
 
       <div class="w-1/2 py-32 sm:py-48 sm:w-100 lg:py-56 ">
         <div class="text-center">
@@ -27,7 +27,7 @@
 
           <img
             src="https://i0.wp.com/thesefourwallsblog.com/wp-content/uploads/2019/03/Hallway-makeover-13.jpg?resize=624%2C906&ssl=1"
-            class="w-3/4 align-center" />
+            class="w-3/4 pb-10 align-center" />
         </div>
 
       </div>
