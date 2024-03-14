@@ -1,8 +1,8 @@
 <template>
-  <div class="container rounded-md shadow p-2">
+  <header class="container ">
     <div class="flex items-center justify-center isolate px-6 pt-14 lg:px-8">
 
-      <div class="w-1/2 py-32 sm:py-48 sm:w-100 lg:py-56 ">
+      <div class="w-1/2 py-32 sm:py-48 sm:w-100 ">
         <div class="text-center">
           <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Data to enrich your
             online business</h1>
@@ -21,13 +21,13 @@
 
       </div>
 
-      <div class="w-1/2 py-5  float-right">
+      <div class="w-1/2  float-right">
 
         <div class="text-center flex items-center justify-center">
 
           <img
             src="https://i0.wp.com/thesefourwallsblog.com/wp-content/uploads/2019/03/Hallway-makeover-13.jpg?resize=624%2C906&ssl=1"
-            class="w-3/4 pb-10 align-center" />
+            class="w-3/4  align-center" />
         </div>
 
       </div>
@@ -39,7 +39,7 @@
           style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script lang="ts" setup>

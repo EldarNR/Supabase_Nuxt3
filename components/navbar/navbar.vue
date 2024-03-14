@@ -1,10 +1,22 @@
 <template>
-  <header class=" inset-x-0 top-0 z-50">
+  <header class=" inset-x-0 top-0 z-50 shadow">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="poster" />
+        <a href="#" class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="44" height="44" viewBox="0 0 172 172"
+            style=" fill:#26e07f;">
+            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+              stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+              font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+              <path d="M0,172v-172h172v172z" fill="none"></path>
+              <g fill="#3c3842">
+                <path
+                  d="M21.5,21.5v129h64.5v-32.25v-64.5v-32.25zM86,53.75c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25c-17.7805,0 -32.25,14.4695 -32.25,32.25zM118.25,86c-17.7805,0 -32.25,14.4695 -32.25,32.25c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25z">
+                </path>
+              </g>
+            </g>
+          </svg>
+          <span class="ml-1 font-semibold leading-7">ChicMinimal </span>
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -19,8 +31,7 @@
           class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <NuxtLink to="/auth" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
-            aria-hidden="true">&rarr;</span></NuxtLink>
+        <Log />
       </div>
     </nav>
     <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">

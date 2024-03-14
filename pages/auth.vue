@@ -8,7 +8,7 @@
                 <CardContent>
                     <Auth :supabaseClient="supabaseClient" :appearance="{
                         theme: ThemeSupa
-                    }" :providers="['google', 'github', 'twitter']" redirectTo="/" theme="light" />
+                    }" :providers="['google', 'github', 'twitter']" show-links redirect-to="/" theme="light" />
                 </CardContent>
             </Card>
         </div>
