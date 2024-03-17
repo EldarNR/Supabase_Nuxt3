@@ -1,6 +1,6 @@
 <template>
-  <header class=" inset-x-0 top-0 z-50 shadow">
-    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+  <header class=" inset-x-0 top-0 z-50 ">
+    <nav class="flex items-center justify-between p-3 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="44" height="44" viewBox="0 0 172 172"
@@ -34,6 +34,7 @@
         <Log />
       </div>
     </nav>
+
     <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
       <div class="fixed inset-0 z-50" />
       <DialogPanel
@@ -79,7 +80,7 @@ export default defineComponent({
   setup() {
     const navigation = ref([
       { name: 'Home', href: '/' },
-      { name: 'About', href: '/about' },
+      { name: 'Store', href: '/store' },
       // Add more navigation items here
     ]);
     const mobileMenuOpen = ref(false); // This line creates a Vue ref named mobileMenuOpen and initializes it to false.

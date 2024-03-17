@@ -15,8 +15,12 @@
     "@iconify/icons-heroicons-solid": "^1.2.6",
     "@nuxtjs/dotenv": "^1.4.2",
     "@pinia/nuxt": "^0.5.1",
+    "@vueuse/core": "^10.9.0",
+    "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "embla-carousel": "^8.0.0",
+    "embla-carousel-vue": "^8.0.0",
     "lucide-vue-next": "^0.354.0",
     "nuxt": "^3.10.3",
     "pinia": "^2.1.7",
@@ -27,6 +31,7 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@nuxt/image": "^1.4.0",
     "@nuxtbase/auth-ui-vue": "^0.3.6",
     "@nuxtjs/supabase": "^1.1.7",
     "@nuxtjs/tailwindcss": "^6.11.4",

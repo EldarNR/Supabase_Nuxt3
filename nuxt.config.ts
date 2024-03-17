@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "@nuxtjs/supabase",
     "@pinia/nuxt",
+    "@nuxt/image"
   ],
   shadcn: {
     /**
@@ -46,6 +47,7 @@ export default defineNuxtConfig({
     public: {
       URL: process.env.SUPABASE_URL,
       KEY: process.env.SUPABASE_KEY,
+      URl: "http://localhost:3000/",
     },
   },
 });

@@ -8,7 +8,9 @@
                 <CardContent>
                     <Auth :supabaseClient="supabaseClient" :appearance="{
                         theme: ThemeSupa
-                    }" :providers="['google', 'github', 'twitter']" show-links redirect-to="/" theme="light" />
+                    }" :providers="['google', 'github', 'twitter']" show-links
+                        :redirectTo=redirectTo(supabaseClient) />
+
                 </CardContent>
             </Card>
         </div>
@@ -23,6 +25,11 @@ import { Auth } from '@nuxtbase/auth-ui-vue'
 import { createClient } from '@supabase/supabase-js'
 const config = useRuntimeConfig()
 const supabaseClient = useSupabaseClient()
+
+const redirectTo = (user: any) => {
+    // Верните URL для перенаправления в зависимости от пользователя
+    return config.public.URL;
+}
 
 const supabaseClients = createClient(config.public.URL, config.public.KEY);
 console.log(supabaseClients)
