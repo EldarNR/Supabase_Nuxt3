@@ -5,15 +5,27 @@
         <span class="text-xl text-zinc-900">Find what you need</span>
         <filters />
 
-        <div class="max-w-screen-xl">
-            <div class="">
-                <div v-if="list" class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center">
+        <div class="max-w-screen-xl flex flex-col">
+            <div class=" justify-center bg-blue-300">
+                <div v-if="list.length >= 1" class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center">
                     <card v-for="item in list" :card="item" :key="item.id" />
                 </div>
-                <loader v-else />
+                <span v-else-if="list.length === 0" class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center">
+                    <div v-for="item in 4" :key="item" class="flex flex-col space-y-3">
+                        <Skeleton class="h-[125px] w-[250px] rounded-xl" />
+                        <div class="space-y-2">
+                            <Skeleton class="h-4 w-[250px]" />
+                            <Skeleton class="h-4 w-[200px]" />
+                        </div>
+                    </div>
+                </span>
+
+                <span v-else class="mt-4 text-center">Error!</span>
             </div>
+
+            <pagination :props="page" class="m-auto mt-8" />
         </div>
-        <pagination :props="page" class="mx-auto my-3 " />
+
 
     </div>
 </template>
@@ -37,10 +49,10 @@ const page = reactive({
     totalPage: 0,
 });
 
-onMounted(async () => {
+onMounted(() => {
     store.fetchProductsFromDB();
 
-    await watchEffect(() => {
+    watchEffect(() => {
         list.value = store.paginatedProducts;
 
         page.total = store.page.itemsPerPage;

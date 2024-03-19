@@ -35,5 +35,8 @@ export const productsStore = defineStore({
     setCurrentPage(page: number) {
       this.page.currentPage = page;
     },
+    getProducts(id: any): void {
+      console.log(id);
+    },
   },
 });
