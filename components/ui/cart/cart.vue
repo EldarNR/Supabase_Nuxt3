@@ -20,13 +20,12 @@
                 </button>
 
                 <div class="mt-4 space-y-6">
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-4">
-                            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-                                alt="" class="size-16 rounded object-cover" />
+                    <ul class=" space-y-4 max-h-56 overflow-auto">
+                        <li v-for="item in cart" class="flex items-center gap-4">
+                            <NuxtImg :src="item.img[0]" :key="item.id" alt="" class="size-16 rounded object-cover" />
 
                             <div>
-                                <h3 class="text-sm text-gray-900">Basic Tee 6-Pack</h3>
+                                <h3 class="text-sm text-gray-900">{{ item.title }}</h3>
 
                                 <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
                                     <div>
@@ -42,26 +41,7 @@
                             </div>
                         </li>
 
-                        <li class="flex items-center gap-4">
-                            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-                                alt="" class="size-16 rounded object-cover" />
 
-                            <div>
-                                <h3 class="text-sm text-gray-900">Basic Tee 6-Pack</h3>
-
-                                <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
-                                    <div>
-                                        <dt class="inline">Size:</dt>
-                                        <dd class="inline">XXS</dd>
-                                    </div>
-
-                                    <div>
-                                        <dt class="inline">Color:</dt>
-                                        <dd class="inline">White</dd>
-                                    </div>
-                                </dl>
-                            </div>
-                        </li>
                     </ul>
 
                     <div class="space-y-4 text-center">
@@ -70,10 +50,10 @@
                             View my cart (2)
                         </a>
 
-                        <a href="#"
+                        <NuxtLink to="/cart"
                             class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600">
                             Checkout
-                        </a>
+                        </NuxtLink>
 
                         <a href="#"
                             class="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600">
@@ -87,7 +67,14 @@
 </template>
 
 <script lang="ts" setup>
+import { productsStore } from '~/stores/index';
 
+const store = productsStore();
+const cart = ref(store.cart);
+
+// watch(() => route.params.id, (newId) => {
+//     getProduct(Number(newId));
+// }, { immediate: true });
 const showCart = ref(false);
 </script>
 

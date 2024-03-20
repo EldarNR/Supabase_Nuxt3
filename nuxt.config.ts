@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxt/image"
   ],
+  css: ['~/assets/css/tailwind.css'],
   shadcn: {
     /**
      * Prefix for all the imported component

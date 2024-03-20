@@ -12,6 +12,7 @@
             <DropdownMenu>
 
                 <div class="flex items-center gap-5 p-0.1  pr-2 ">
+                    {{ user.user_metadata.full_name }}
                     <DropdownMenuTrigger>
                         open
                     </DropdownMenuTrigger>
@@ -39,7 +40,6 @@ import cart from '../ui/cart/cart.vue';
 const userIn = ref(false);
 const user = useSupabaseUser()
 const supabaseClient = useSupabaseClient();
-
 
 
 const logOut = async () => {

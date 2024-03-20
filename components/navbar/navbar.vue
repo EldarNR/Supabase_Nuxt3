@@ -27,8 +27,8 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a v-for="item in navigation" :key="item.name" :href="item.href"
-          class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
+        <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+          class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</NuxtLink>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <Log />
