@@ -6,7 +6,7 @@
         <filters />
 
         <div class="max-w-screen-xl flex flex-col">
-            <div class=" justify-center bg-blue-300">
+            <div class=" justify-center">
                 <div v-if="list.length >= 1" class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center">
                     <card v-for="item in list" :card="item" :key="item.id" />
                 </div>
