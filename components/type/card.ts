@@ -16,4 +16,5 @@ export interface Cart {
   price: number;
   id: number;
   img: string[];
+  count: number;
 }

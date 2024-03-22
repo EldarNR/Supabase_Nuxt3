@@ -16,20 +16,17 @@
                         <ul class="space-y-4">
                             <li v-for="item in store.cart" :key="item.id" class="flex items-center gap-4">
                                 <NuxtImg :src="item.img[0]" alt="img" class="size-16 rounded object-cover" />
-                                <h3 class="text-sm text-gray-900">{{ item.title }}</h3>
+                                <NuxtLink class="text-sm text-gray-900" :to="`/store/${item.id}`">{{ item.title }}
+                                </NuxtLink>
 
                                 <p>
-                                    {{ item.price }}
+                                    $ {{ item.price }}
                                 </p>
                                 <div class="flex flex-1 items-center justify-end gap-2">
-                                    <form>
-                                        <label for="Line1Qty" class="sr-only"> Quantity </label>
+                                    <Qualitity :item="item" :quantity="item.count" />
 
-                                        <input type="number" min="1" value="1" id="Line1Qty"
-                                            class="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
-                                    </form>
-
-                                    <button class="text-gray-600 transition hover:text-red-600">
+                                    <button @click="store.removeAllFromCart(item)"
+                                        class="text-gray-600 transition hover:text-red-600">
                                         <span class="sr-only">Remove item</span>
 
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -47,7 +44,7 @@
                                 <dl class="space-y-0.5 text-sm text-gray-700">
                                     <div class="flex justify-between">
                                         <dt>Subtotal</dt>
-                                        <dd>£250</dd>
+                                        <dd>{{ store.totalPrice }}</dd>
                                     </div>
 
                                     <div class="flex justify-between">
@@ -96,7 +93,7 @@
 
 <script lang="ts" setup>
 import { productsStore } from '~/stores/index';
-
+import Qualitity from '~/components/ui/quantity/Quantity.vue';
 const store = productsStore();
 
 const isCartEmpty = () => {

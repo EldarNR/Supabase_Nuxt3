@@ -22,7 +22,7 @@
                 <span class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"></span>
 
                 <div class="p-8 sm:p-16 lg:p-24">
-                    <h2 class="text-2xl font-bold sm:text-3xl">
+                    <h2 class="text-2xl  font-bold sm:text-3xl">
                         {{ productData?.title }}
                     </h2>
 
@@ -47,6 +47,7 @@ import { productsStore } from '~/stores/index';
 import { useRoute } from 'vue-router';
 import FAQ from '~/components/FAQ/FAQ.vue';
 import alert from "~/components/ui/alert/alert.vue";
+import type { Cart } from '~/components/type/card';
 
 type Product = {
     title: string;
@@ -54,6 +55,7 @@ type Product = {
     price: number;
     id: number;
     img: string[];
+
 }
 
 const route = useRoute();
@@ -76,14 +78,17 @@ const getProduct = async (id: number) => {
 }
 
 const addToCartAndShowAlert = (product: Product) => {
-    store.addToCart(product);
+    const cartItem: Cart = {
+        ...product,
+        count: 1, // or any default value
+    };
+    store.addToCart(cartItem);
 
     alerts.value = true;
     setTimeout(() => {
         alerts.value = false;
     }, 3000);
 }
-
 
 watch(() => route.params.id, (newId) => {
     getProduct(Number(newId));

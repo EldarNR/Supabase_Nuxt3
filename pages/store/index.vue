@@ -11,7 +11,7 @@
                     <card v-for="item in list" :card="item" :key="item.id" />
                 </div>
                 <span v-else-if="list.length === 0" class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center">
-                    <div v-for="item in 4" :key="item" class="flex flex-col space-y-3">
+                    <div v-for="item in store.page.itemsPerPage" :key="item" class="flex flex-col space-y-3">
                         <Skeleton class="h-[125px] w-[250px] rounded-xl" />
                         <div class="space-y-2">
                             <Skeleton class="h-4 w-[250px]" />
@@ -36,7 +36,6 @@ import { productsStore } from '~/stores/index';
 import carusel from '~/components/carusel/carusel.vue';
 import filters from '../components/filter_components/filters.vue';
 import card from '../components/card/card.vue';
-import loader from '~/components/ui/loader.vue/loader.vue';
 import pagination from '~/components/pagination/pagination.vue';
 
 

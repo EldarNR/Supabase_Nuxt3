@@ -24,6 +24,12 @@ export const productsStore = defineStore({
     totalPages(): number {
       return Math.ceil(this.products.length / this.page.itemsPerPage);
     },
+    totalPrice(): number {
+      return this.cart.reduce(
+        (total, item) => total + item.price * item.count,
+        0
+      );
+    },
   },
   actions: {
     async fetchProductsFromDB() {
@@ -54,9 +60,29 @@ export const productsStore = defineStore({
         return null;
       }
     },
-    addToCart(product: object | any) {
+    addToCart(product: Cart) {
+      if (this.cart.find((item) => item.id === product.id)) {
+        const index = this.cart.findIndex((item) => item.id === product.id);
+        this.cart[index].count += 1;
+        return;
+      } else {
+        product.count = 1;
+      }
       this.cart.push(product);
-      console.log("product", product);
+    },
+    removeFromCart(product: Cart) {
+      const index = this.cart.findIndex((item) => item.id === product.id);
+      if (this.cart[index].count > 1) {
+        this.cart[index].count -= 1;
+      } else {
+        this.cart.splice(index, 1);
+      }
+    },
+    removeAllFromCart(product: Cart) {
+      const index = this.cart.findIndex((item) => item.id === product.id);
+      if (index !== -1) {
+        this.cart.splice(index, 1);
+      }
     },
   },
 });

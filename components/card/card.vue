@@ -38,12 +38,4 @@ type Card = {
 const props = defineProps({
     card: { type: Object as () => Card, required: true },
 })
-
-const goToProduct = (id: number) => {
-    console.log('go to product', id);
-}
-
-watchEffect(() => {
-    console.log(props.card);
-})
 </script>

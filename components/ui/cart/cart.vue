@@ -21,34 +21,27 @@
 
                 <div class="mt-4 space-y-6">
                     <ul class=" space-y-4 max-h-56 overflow-auto">
-                        <li v-for="item in cart" class="flex items-center gap-4">
+                        <NuxtLink v-for="item in cart"
+                            class="flex items-center gap-4 rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition  hover:bg-gray-300"
+                            :to="`/store/${item.id}`">
                             <NuxtImg :src="item.img[0]" :key="item.id" alt="" class="size-16 rounded object-cover" />
 
                             <div>
-                                <h3 class="text-sm text-gray-900">{{ item.title }}</h3>
-
-                                <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
-                                    <div>
-                                        <dt class="inline">Size:</dt>
-                                        <dd class="inline">XXS</dd>
-                                    </div>
-
-                                    <div>
-                                        <dt class="inline">Color:</dt>
-                                        <dd class="inline">White</dd>
-                                    </div>
+                                <h3 class="text-sm text-gray-900 hover:text-white">{{ item.title }}</h3>
+                                <dl class="mt-0.5 space-y-px text-[10px] text-gray-600 hover:text-white">
+                                    <dt class="inline">Count: {{ item.count }} </dt>
                                 </dl>
                             </div>
-                        </li>
+                        </NuxtLink>
 
 
                     </ul>
 
                     <div class="space-y-4 text-center">
-                        <a href="#"
+                        <NuxtLink to="/cart"
                             class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400">
-                            View my cart (2)
-                        </a>
+                            View my cart ({{ cart.length }})
+                        </NuxtLink>
 
                         <NuxtLink to="/cart"
                             class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600">
