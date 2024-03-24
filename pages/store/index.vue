@@ -34,7 +34,7 @@
 import { ref, onMounted } from 'vue';
 import { productsStore } from '~/stores/index';
 import carusel from '~/components/carusel/carusel.vue';
-import filters from '../components/filter_components/filters.vue';
+import filters from '../components/ui/filter_components/filters.vue';
 import card from '../components/card/card.vue';
 import pagination from '~/components/pagination/pagination.vue';
 

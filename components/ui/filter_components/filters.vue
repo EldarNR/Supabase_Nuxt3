@@ -1,11 +1,4 @@
 <template>
-    <!--
-      Heads up! 👋
-    
-      Plugins:
-        - @tailwindcss/forms
-    -->
-
     <div class="flex gap-8 items-center justify-end">
         <div class="flex items-stretch shadow p-2 rounded-lg mb-4">
             <svg viewBox="0 0 20 20" aria-hidden="true"
@@ -16,8 +9,8 @@
             </svg>
             <label class="sr-only" for="search">Search</label>
 
-            <input class="w-full rounded-lg border-gray-200 p-2 text-sm" placeholder="Search..." type="text"
-                id="phone" />
+            <input v-model="search" class="w-full rounded-lg border-gray-200 p-2 text-sm" placeholder="Search..."
+                type="text" id="phone" @input="store.searchProducts(search)" />
 
         </div>
         <div class="relative">
@@ -91,10 +84,11 @@
 
                 <div class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
                     <div class="w-96 rounded border border-gray-200 bg-white">
-                        <header class="flex items-center justify-between p-4">
-                            <span class="text-sm text-gray-700"> The highest price is $600 </span>
+                        <header v-if="click" class="flex items-center justify-between p-4">
+                            <span class="text-sm text-gray-700"> Find {{ store.products.length }}</span>
 
-                            <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+                            <button @click="click = false, store.resetSort" type="button"
+                                class="text-sm text-gray-900 underline underline-offset-4">
                                 Reset
                             </button>
                         </header>
@@ -105,16 +99,24 @@
                                     <span class="text-sm text-gray-600">$</span>
 
                                     <input type="number" id="FilterPriceFrom" placeholder="From"
-                                        class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm" />
+                                        class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                                        v-model="filter.priceFrom" />
                                 </label>
 
                                 <label for="FilterPriceTo" class="flex items-center gap-2">
                                     <span class="text-sm text-gray-600">$</span>
 
                                     <input type="number" id="FilterPriceTo" placeholder="To"
-                                        class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm" />
+                                        class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                                        v-model="filter.priceTo" />
+                                </label>
+                                <label for="FilterPriceTo" class="flex items-center gap-2">
+                                    <Button @click="store.sortPrice(filter.priceFrom, filter.priceTo), click = true">
+                                        Apply
+                                    </Button>
                                 </label>
                             </div>
+
                         </div>
 
                     </div>
@@ -129,8 +131,19 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent } from 'vue';
+import { defineComponent, reactive, ref, watch } from 'vue';
+import { productsStore } from '../../../stores/index';
 
+const store = productsStore();
+let search = ref('');
+const click = ref(false);
+let filter = reactive({
+    inStock: false,
+    preOrder: false,
+    outOfStock: false,
+    priceFrom: 0,
+    priceTo: 0,
+});
 </script>
 
 <style></style>

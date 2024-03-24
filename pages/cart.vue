@@ -44,22 +44,22 @@
                                 <dl class="space-y-0.5 text-sm text-gray-700">
                                     <div class="flex justify-between">
                                         <dt>Subtotal</dt>
-                                        <dd>{{ store.totalPrice }}</dd>
+                                        <dd>{{ store.totalPrice.toFixed(2) }}</dd>
                                     </div>
 
                                     <div class="flex justify-between">
                                         <dt>VAT</dt>
-                                        <dd>£25</dd>
+                                        <dd>{{ store.VAT.toFixed(2) }}</dd>
                                     </div>
 
                                     <div class="flex justify-between">
                                         <dt>Discount</dt>
-                                        <dd>-£20</dd>
+                                        <dd>{{ store.Discount.toFixed(2) }}(10%)</dd>
                                     </div>
 
                                     <div class="flex justify-between !text-base font-medium">
                                         <dt>Total</dt>
-                                        <dd>£200</dd>
+                                        <dd>{{ store.grandTotal.toFixed(2) }}$</dd>
                                     </div>
                                 </dl>
 
