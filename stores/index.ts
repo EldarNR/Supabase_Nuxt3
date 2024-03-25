@@ -1,13 +1,13 @@
 import { defineStore } from "pinia";
 import data from "../data/products.json";
-import { type Root } from "../components/type/card";
+import { type Product } from "../components/type/card";
 import { type Cart } from "../components/type/card";
 import { Disc } from "lucide-vue-next";
 
 export const productsStore = defineStore({
   id: "products",
   state: () => ({
-    products: [] as Root[],
+    products: [] as Product[],
     page: {
       currentPage: 1,
       itemsPerPage: 4,
@@ -17,7 +17,7 @@ export const productsStore = defineStore({
   }),
 
   getters: {
-    paginatedProducts(): Root[] {
+    paginatedProducts(): Product[] {
       const startIndex = (this.page.currentPage - 1) * this.page.itemsPerPage;
       const endIndex = startIndex + this.page.itemsPerPage;
       return this.products.slice(startIndex, endIndex);
@@ -45,7 +45,7 @@ export const productsStore = defineStore({
     async fetchProductsFromDB() {
       try {
         const response = await data;
-        this.products = response.products as unknown as Root[]; // Cast the response to the expected type
+        this.products = response.products as unknown as Product[]; // Cast the response to the expected type
         console.log("response", this.products);
         return response.products; // Вернуть данные
       } catch (error) {
@@ -62,7 +62,7 @@ export const productsStore = defineStore({
         const response = await data.products;
         this.products = response.filter((product) =>
           product.title.toLowerCase().includes(search.toLowerCase())
-        ) as unknown as Root[];
+        ) as unknown as Product[];
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -76,21 +76,13 @@ export const productsStore = defineStore({
           (product) => product.price >= minPrice && product.price <= maxPrice
         );
         if (filteredProducts.length) {
-          this.products = filteredProducts as unknown as Root[];
+          this.products = filteredProducts as unknown as Product[];
         } else {
           return "No products found in the specified price range.";
         }
         return filteredProducts;
       } catch (error) {
         console.error("Error filtering products:", error);
-      }
-    },
-
-    async resetSort() {
-      try {
-        await this.fetchProductsFromDB();
-      } catch (error) {
-        console.error("Error resetting sort:", error);
       }
     },
 
@@ -133,6 +125,22 @@ export const productsStore = defineStore({
       if (index !== -1) {
         this.cart.splice(index, 1);
       }
+    },
+    filter(category: string[]) {
+      const filteredProducts = this.products.filter(
+        (product) => product.category && category.includes(product.category)
+      );
+      if (filteredProducts.length) {
+        this.products = filteredProducts;
+      } else {
+        return "No products found in the specified category.";
+      }
+    },
+    sortPriceMax() {
+      this.products.sort((a, b) => b.price - a.price);
+    },
+    sortPriceMin() {
+      this.products.sort((a, b) => a.price - b.price);
     },
   },
 });

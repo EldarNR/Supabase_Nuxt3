@@ -1,6 +1,4 @@
-export interface Root {
-  products: Product[];
-}
+
 
 export interface Product {
   title: string;
@@ -8,6 +6,7 @@ export interface Product {
   price: number;
   id: number;
   img: string[];
+  category?: string ;
 }
 
 export interface Cart {
@@ -17,4 +16,5 @@ export interface Cart {
   id: number;
   img: string[];
   count: number;
+  category: string;
 }

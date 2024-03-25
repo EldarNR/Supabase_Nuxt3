@@ -17,7 +17,7 @@
                 <div class="mt-1.5 flex items-center justify-between text-gray-900">
                     <p class="tracking-wide">${{ props.card.price }}</p>
 
-                    <p class="text-xs uppercase tracking-wide">6 Colors</p>
+                    <p class="text-xs uppercase tracking-wide">{{ props.card.category }}</p>
                 </div>
             </div>
         </NuxtLink>
@@ -33,6 +33,7 @@ type Card = {
     price: number;
     id: number;
     img: string[];
+    category: string;
 }
 
 const props = defineProps({

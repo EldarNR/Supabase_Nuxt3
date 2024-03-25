@@ -17,7 +17,7 @@
             <details class="group [&_summary::-webkit-details-marker]:hidden">
                 <summary
                     class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600">
-                    <span class="text-sm font-medium"> Availability </span>
+                    <span class="text-sm font-medium"> Category </span>
 
                     <span class="transition group-open:-rotate-180">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -30,38 +30,24 @@
                 <div class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
                     <div class="w-96 rounded border border-gray-200 bg-white">
                         <header class="flex items-center justify-between p-4">
-                            <span class="text-sm text-gray-700"> 0 Selected </span>
+                            <span class="text-sm text-gray-700">{{ checked.length }} Selected </span>
 
-                            <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+                            <button @click="store.fetchProductsFromDB(), checked = []" type="button"
+                                class="text-sm text-gray-900 underline underline-offset-4">
                                 Reset
                             </button>
                         </header>
 
                         <ul class="space-y-1 border-t border-gray-200 p-4">
-                            <li>
+                            <li v-for="item in category" :key="item.category">
                                 <label for="FilterInStock" class="inline-flex items-center gap-2">
-                                    <input type="checkbox" id="FilterInStock" class="size-5 rounded border-gray-300" />
-
-                                    <span class="text-sm font-medium text-gray-700"> In Stock (5+) </span>
-                                </label>
-                            </li>
-
-                            <li>
-                                <label for="FilterPreOrder" class="inline-flex items-center gap-2">
-                                    <input type="checkbox" id="FilterPreOrder" class="size-5 rounded border-gray-300" />
-
-                                    <span class="text-sm font-medium text-gray-700"> Pre Order (3+) </span>
-                                </label>
-                            </li>
-
-                            <li>
-                                <label for="FilterOutOfStock" class="inline-flex items-center gap-2">
-                                    <input type="checkbox" id="FilterOutOfStock"
+                                    <input v-model="checked" type="checkbox" id="FilterCategory" :value="item"
                                         class="size-5 rounded border-gray-300" />
+                                    <span class="text-sm font-medium text-gray-700"> {{ item }} </span>
 
-                                    <span class="text-sm font-medium text-gray-700"> Out of Stock (10+) </span>
                                 </label>
                             </li>
+
                         </ul>
                     </div>
                 </div>
@@ -87,7 +73,7 @@
                         <header v-if="click" class="flex items-center justify-between p-4">
                             <span class="text-sm text-gray-700"> Find {{ store.products.length }}</span>
 
-                            <button @click="click = false, store.resetSort" type="button"
+                            <button @click="click = false, store.fetchProductsFromDB()" type="button"
                                 class="text-sm text-gray-900 underline underline-offset-4">
                                 Reset
                             </button>
@@ -116,7 +102,26 @@
                                     </Button>
                                 </label>
                             </div>
-
+                            <div class="flex justify-between gap-4 mt-2">
+                                <RadioGroup default-value="option-one">
+                                    <span class="text-sm text-gray-600">Starting with:</span>
+                                    <div class="flex items-center space-x-2">
+                                        <RadioGroupItem @click="store.fetchProductsFromDB()" id="option-one"
+                                            value="option-one" />
+                                        <span for="option-one">Default</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <RadioGroupItem @click="store.sortPriceMax()" id="option-two"
+                                            value="option-two" />
+                                        <span for="option-two">Max price</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <RadioGroupItem @click="store.sortPriceMin()" id="option-three"
+                                            value="option-three" />
+                                        <span for="option-three">Min price</span>
+                                    </div>
+                                </RadioGroup>
+                            </div>
                         </div>
 
                     </div>
@@ -133,16 +138,31 @@
 <script lang="ts" setup>
 import { defineComponent, reactive, ref, watch } from 'vue';
 import { productsStore } from '../../../stores/index';
-
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 const store = productsStore();
 let search = ref('');
 const click = ref(false);
+
 let filter = reactive({
     inStock: false,
     preOrder: false,
     outOfStock: false,
     priceFrom: 0,
     priceTo: 0,
+});
+
+let switchs = ref(false);
+
+
+let category = ref([]) as any;
+const checked = ref([])
+
+watch(checked, (value) => {
+    store.filter(value);
+});
+
+watchEffect(() => {
+    category.value = Array.from(new Set(store.products.map(item => item.category)));
 });
 </script>
 
