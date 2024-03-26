@@ -4,6 +4,10 @@
             "title": "Product 1",
             "description": "Description of Product 1",
             "price": 10.99,
+            "discount": {
+                "percentage": 10,
+                "priceAfterDiscount": 9.89
+            },
             "id": 1,
             "img": [
                 "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
@@ -48,6 +52,10 @@
             "title": "Product 5",
             "description": "Description of Product 5",
             "price": 12.99,
+            "discount": {
+                "percentage": 10,
+                "priceAfterDiscount": 11.69
+            },
             "id": 5,
             "img": [
                 "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
@@ -81,6 +89,10 @@
             "title": "Product 8",
             "description": "Description of Product 8",
             "price": 11.99,
+            "discount": {
+                "percentage": 10,
+                "priceAfterDiscount": 10.79
+            },
             "id": 8,
             "img": [
                 "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
@@ -125,6 +137,10 @@
             "title": "Product 12",
             "description": "Description of Product 12",
             "price": 12.99,
+            "discount": {
+                "percentage": 20,
+                "priceAfterDiscount": 10.39
+            },
             "id": 12,
             "img": [
                 "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",

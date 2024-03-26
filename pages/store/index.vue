@@ -1,7 +1,13 @@
 <template>
+    <div class="bg-indigo-600 px-4 py-3 text-white">
+        <p class="text-center text-sm font-medium">
+            New customer?
+            Keep <a class="inline-block underline">10%</a> on your first purchase!
+        </p>
+    </div>
     <div class="container">
         <carusel />
-
+        <banner />
         <span class="text-xl text-zinc-900">Find what you need</span>
         <filters />
 
@@ -37,7 +43,7 @@ import carusel from '~/components/carusel/carusel.vue';
 import filters from '../components/ui/filter_components/filters.vue';
 import card from '../components/card/card.vue';
 import pagination from '~/components/pagination/pagination.vue';
-
+import banner from '~/components/banner/banner.vue';
 
 const store = productsStore();
 let list = ref<any>([]);

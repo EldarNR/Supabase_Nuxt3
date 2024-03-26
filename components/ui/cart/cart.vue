@@ -24,6 +24,7 @@
                         <NuxtLink v-for="item in cart"
                             class="flex items-center gap-4 rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition  hover:bg-gray-300"
                             :to="`/store/${item.id}`">
+
                             <NuxtImg :src="item.img[0]" :key="item.id" alt="" class="size-16 rounded object-cover" />
 
                             <div>
@@ -32,8 +33,12 @@
                                     <dt class="inline">Count: {{ item.count }} </dt>
                                 </dl>
                             </div>
-                        </NuxtLink>
 
+
+                        </NuxtLink>
+                        <li v-if="cart.length === 0" class="text-center">
+                            <span class="font-medium text-sm text-bold">Cart is empty</span>
+                        </li>
 
                     </ul>
 

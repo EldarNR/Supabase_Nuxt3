@@ -158,12 +158,18 @@ let category = ref([]) as any;
 const checked = ref([])
 
 watch(checked, (value) => {
-    store.filter(value);
+    store.filterByCategory(value);
 });
 
 watchEffect(() => {
-    category.value = Array.from(new Set(store.products.map(item => item.category)));
+    const newCategories = Array.from(new Set(store.products.map((item) => item.category)));
+    newCategories.forEach((newCategory) => {
+        if (!category.value.includes(newCategory)) {
+            category.value.push(newCategory);
+        }
+    });
 });
+
 </script>
 
 <style></style>

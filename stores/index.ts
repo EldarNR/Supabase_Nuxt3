@@ -1,13 +1,11 @@
 import { defineStore } from "pinia";
 import data from "../data/products.json";
-import { type Product } from "../components/type/card";
 import { type Cart } from "../components/type/card";
-import { Disc } from "lucide-vue-next";
 
 export const productsStore = defineStore({
   id: "products",
   state: () => ({
-    products: [] as Product[],
+    products: [] as Cart[],
     page: {
       currentPage: 1,
       itemsPerPage: 4,
@@ -17,7 +15,7 @@ export const productsStore = defineStore({
   }),
 
   getters: {
-    paginatedProducts(): Product[] {
+    paginatedProducts(): Cart[] {
       const startIndex = (this.page.currentPage - 1) * this.page.itemsPerPage;
       const endIndex = startIndex + this.page.itemsPerPage;
       return this.products.slice(startIndex, endIndex);
@@ -45,7 +43,7 @@ export const productsStore = defineStore({
     async fetchProductsFromDB() {
       try {
         const response = await data;
-        this.products = response.products as unknown as Product[]; // Cast the response to the expected type
+        this.products = response.products as unknown as Cart[]; // Cast the response to the expected type
         console.log("response", this.products);
         return response.products; // Вернуть данные
       } catch (error) {
@@ -62,7 +60,7 @@ export const productsStore = defineStore({
         const response = await data.products;
         this.products = response.filter((product) =>
           product.title.toLowerCase().includes(search.toLowerCase())
-        ) as unknown as Product[];
+        ) as unknown as Cart[];
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -76,7 +74,7 @@ export const productsStore = defineStore({
           (product) => product.price >= minPrice && product.price <= maxPrice
         );
         if (filteredProducts.length) {
-          this.products = filteredProducts as unknown as Product[];
+          this.products = filteredProducts as unknown as Cart[];
         } else {
           return "No products found in the specified price range.";
         }
@@ -126,14 +124,21 @@ export const productsStore = defineStore({
         this.cart.splice(index, 1);
       }
     },
-    filter(category: string[]) {
-      const filteredProducts = this.products.filter(
-        (product) => product.category && category.includes(product.category)
-      );
-      if (filteredProducts.length) {
-        this.products = filteredProducts;
-      } else {
-        return "No products found in the specified category.";
+    async filterByCategory(category: string[]) {
+      try {
+        const fetchProducts = (await data.products) as Cart[];
+        console.log("fetchProducts", fetchProducts);
+        const filteredProducts = fetchProducts.filter((product) =>
+          category.includes(product.category as string)
+        );
+        if (filteredProducts.length) {
+          this.products = filteredProducts;
+        } else {
+          return "No products found in the specified category.";
+        }
+      } catch (error) {
+        console.error("Error filtering products:", error);
+        throw error;
       }
     },
     sortPriceMax() {
