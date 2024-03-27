@@ -26,23 +26,29 @@
                 </a>
             </div>
 
-            <div v-for="item in reviews" :key="item" class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+            <div v-for="item in list" :key="item.id" class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
                 <card :review="item" />
             </div>
         </div>
     </section>
 </template>
 <script lang="ts" setup>
-
 import card from './reviewMinmal/card.vue';
+import { reviews } from '~/stores/review';
 
-let reviews = ref([]);
+export type Review = {
+    id: number;
+    name: string;
+    review: string;
+    star: number;
+    picture: string;
+    price?: number;
+};
 
-onMounted(async () => {
-    const response = await fetch('/data/review.json');
-    reviews.value = await response.json();
-    const user = useSupabaseUser()
-    console.log(user);
+let list = ref([]) as unknown as Ref<Review[]>;
+
+watchEffect(() => {
+    list.value = reviews().reviews;
 });
 
 defineExpose({ Review: null });

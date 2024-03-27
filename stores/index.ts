@@ -6,6 +6,7 @@ export const productsStore = defineStore({
   id: "products",
   state: () => ({
     products: [] as Cart[],
+    banner: [] as Cart[],
     page: {
       currentPage: 1,
       itemsPerPage: 4,
@@ -43,12 +44,30 @@ export const productsStore = defineStore({
     async fetchProductsFromDB() {
       try {
         const response = await data;
-        this.products = response.products as unknown as Cart[]; // Cast the response to the expected type
-        console.log("response", this.products);
-        return response.products; // Вернуть данные
+        this.products = response.products as unknown as Cart[];
+
+        this.productforBanner();
       } catch (error) {
         console.error("Error fetching products:", error);
         throw error;
+      }
+    },
+    async productforBanner() {
+      const productsWithDiscount = await this.products.filter(
+        (item) => item.discount !== undefined
+      );
+      if (productsWithDiscount.length >= 2) {
+        const index1 = Math.floor(Math.random() * productsWithDiscount.length);
+        let index2;
+        do {
+          index2 = Math.floor(Math.random() * productsWithDiscount.length);
+        } while (index1 === index2);
+        this.banner = [
+          productsWithDiscount[index1],
+          productsWithDiscount[index2],
+        ];
+      } else {
+        this.banner = [...productsWithDiscount];
       }
     },
     setCurrentPage(page: number) {
@@ -127,7 +146,6 @@ export const productsStore = defineStore({
     async filterByCategory(category: string[]) {
       try {
         const fetchProducts = (await data.products) as Cart[];
-        console.log("fetchProducts", fetchProducts);
         const filteredProducts = fetchProducts.filter((product) =>
           category.includes(product.category as string)
         );

@@ -4,7 +4,7 @@
         "name": "John Smith",
         "review": "The furniture quality is amazing!",
         "star": 4,
-        "avatar picture": "https://example.com/avatar1.jpg",
+        "picture": "https://i.pinimg.com/564x/32/09/41/320941b3eda2eb3cabc7a7f039772808.jpg",
         "price": 199.99
     },
     {
@@ -12,7 +12,7 @@
         "name": "Emily Johnson",
         "review": "Great customer service and fast delivery.",
         "star": 2,
-        "avatar picture": "https://example.com/avatar2.jpg",
+        "picture": "https://i.pinimg.com/564x/32/09/41/320941b3eda2eb3cabc7a7f039772808.jpg",
         "price": 299.99
     },
     {
@@ -20,7 +20,7 @@
         "name": "Michael Davis",
         "review": "I love the modern design of the furniture.",
         "star": 4,
-        "avatar picture": "https://example.com/avatar3.jpg",
+        "picture": "https://i.pinimg.com/564x/32/09/41/320941b3eda2eb3cabc7a7f039772808.jpg",
         "price": 149.99
     },
     {
@@ -28,7 +28,7 @@
         "name": "Jennifer Wilson",
         "review": "The prices are a bit high, but the furniture is worth it.",
         "star": 3,
-        "avatar picture": "https://example.com/avatar4.jpg",
+        "picture": "https://i.pinimg.com/564x/32/09/41/320941b3eda2eb3cabc7a7f039772808.jpg",
         "price": 249.99
     },
     {
@@ -36,7 +36,7 @@
         "name": "David Taylor",
         "review": "The furniture arrived damaged, but the store replaced it quickly.",
         "star": 4,
-        "avatar picture": "https://example.com/avatar5.jpg",
+        "picture": "https://i.pinimg.com/564x/32/09/41/320941b3eda2eb3cabc7a7f039772808.jpg",
         "price": 399.99
     },
     {
@@ -44,7 +44,7 @@
         "name": "Sarah Anderson",
         "review": "I had a great experience shopping at this store.",
         "star": 5,
-        "avatar picture": "https://example.com/avatar6.jpg",
+        "picture": "https://i.pinimg.com/564x/32/09/41/320941b3eda2eb3cabc7a7f039772808.jpg",
         "price": 179.99
     },
     {
@@ -52,7 +52,7 @@
         "name": "Christopher Martinez",
         "review": "The furniture is comfortable and stylish.",
         "star": 2,
-        "avatar picture": "https://example.com/avatar7.jpg",
+        "picture": "https://i.pinimg.com/564x/32/09/41/320941b3eda2eb3cabc7a7f039772808.jpg",
         "price": 349.99
     },
     {
@@ -60,7 +60,7 @@
         "name": "Jessica Thomas",
         "review": "I would highly recommend this furniture store.",
         "star": 4,
-        "avatar picture": "https://example.com/avatar8.jpg",
+        "picture": "https://i.pinimg.com/564x/32/09/41/320941b3eda2eb3cabc7a7f039772808.jpg",
         "price": 299.99
     },
     {
@@ -68,7 +68,7 @@
         "name": "Daniel Hernandez",
         "review": "The furniture is exactly as described on the website.",
         "star": 3,
-        "avatar picture": "https://example.com/avatar9.jpg",
+        "picture": "https://i.pinimg.com/564x/32/09/41/320941b3eda2eb3cabc7a7f039772808.jpg",
         "price": 199.99
     },
     {
@@ -76,7 +76,7 @@
         "name": "Ashley Young",
         "review": "The store has a wide selection of furniture to choose from.",
         "star": 4,
-        "avatar picture": "https://example.com/avatar10.jpg",
+        "picture": "https://i.pinimg.com/564x/32/09/41/320941b3eda2eb3cabc7a7f039772808.jpg",
         "price": 249.99
     }
 ]
