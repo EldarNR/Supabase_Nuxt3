@@ -6,6 +6,7 @@
         </p>
     </div>
     <div class="container">
+        <p class="text-center text-xl font-medium mt-4 text-zinc-900 ">Recommended</p>
         <carusel />
         <banner />
         <span class="text-xl text-zinc-900">Find what you need</span>

@@ -1,15 +1,16 @@
 <template>
     <div class="relative mx-auto max-w-screen-xl max-h-54 px-4 py-16 sm:px-6 lg:px-8">
-        <breadcump :title="String(idPage)" :href="String(idPage)" />
+        <breadcump :title="String(idPage)" :parent="'store'" :href="String(idPage)" />
         <alert v-show="alerts" class="absolute z-20 left-1/2 transform -translate-x-1/2 mb-5" :title="'Added to cart '"
             :description="'Check your shopping cart!'" @close="alerts = false" />
         <div class="grid grid-cols-2 lg:h-94 lg:grid-cols-2">
-            <div class="relative z-10 py-4 lg:py-16">
-                <div class="flex flex-col items-center h-28 sm:h-80 sm:w-full lg:h-full">
+            <div class="flex items-center flex-col justify-center z-10 py-4 lg:py-16">
+                <div class="flex flex-col items-center justify-center h-28 sm:h-80 sm:w-full lg:h-full">
                     <Carousel class="relative w-full max-w-xs shadow-sm " @init-api="(val) => emblaMainApi = val">
                         <CarouselContent>
-                            <CarouselItem v-for="(_, index) in productData?.img" :key="index">
+                            <CarouselItem v-for="( _, index ) in  productData?.img " :key="index">
                                 <NuxtImg :src="_" />
+                                <popup :img="_" />
                             </CarouselItem>
                         </CarouselContent>
                         <CarouselPrevious />
@@ -18,7 +19,7 @@
 
                     <Carousel class="relative w-full max-w-xs" @init-api="(val) => emblaThumbnailApi = val">
                         <CarouselContent class="flex gap-1 ml-0">
-                            <CarouselItem v-for="(_, index) in productData?.img" :key="index"
+                            <CarouselItem v-for="( _, index ) in  productData?.img " :key="index"
                                 class="pl-1 basis-1/12 cursor-pointer flex" @click="onThumbClick(index)">
                                 <a
                                     class="inline-block mt-2 rounded-full border border-indigo-400 bg-indigo-600 p-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500">
@@ -54,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onBeforeMount, watch } from 'vue';
+import { ref, watch } from 'vue';
 import { productsStore } from '~/stores/index';
 import { useRoute } from 'vue-router';
 import FAQ from '~/components/FAQ/FAQ.vue';
@@ -63,8 +64,7 @@ import type { Cart } from '~/components/type/card';
 import breadcump from '~/components/ui/breadcrump/breadcrump.vue';
 import { watchOnce } from '@vueuse/core'
 import { Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
-import { Card, CardContent } from '@/components/ui/card'
-
+import popup from '@/components/ui/img_popup/popup.vue'
 type Product = {
     title: string;
     description: string;

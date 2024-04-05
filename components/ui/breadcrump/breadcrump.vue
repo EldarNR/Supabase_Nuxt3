@@ -19,7 +19,8 @@
                     </a>
                 </li>
             </NuxtLink>
-            <li class="rtl:rotate-180">
+
+            <li v-if="props.parent" class="rtl:rotate-180">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd"
                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
@@ -27,9 +28,9 @@
                 </svg>
             </li>
 
-            <NuxtLink to="/store">
+            <NuxtLink v-if="props.parent" :to="`/${props.parent}`">
                 <li>
-                    <a class="block transition hover:text-gray-700"> Store </a>
+                    <a class="block transition hover:text-gray-700"> {{ props.parent }} </a>
                 </li>
             </NuxtLink>
 
@@ -40,7 +41,7 @@
                         clip-rule="evenodd" />
                 </svg>
             </li>
-            <NuxtLink :to='`/store/${props.href}`'>
+            <NuxtLink :to='`/${props.parent}/${props.href}`'>
                 <li>
                     <a class="block transition hover:text-gray-700"> Product {{ props.title }} </a>
                 </li>
@@ -53,6 +54,7 @@
 
 const props = defineProps<{
     title: string;
+    parent?: string;
     href: string;
 }>();
 </script>

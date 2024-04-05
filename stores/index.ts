@@ -1,12 +1,14 @@
 import { defineStore } from "pinia";
 import data from "../data/products.json";
 import { type Cart } from "../components/type/card";
+import Carusel from "~/components/carusel/carusel.vue";
 
 export const productsStore = defineStore({
   id: "products",
   state: () => ({
     products: [] as Cart[],
     banner: [] as Cart[],
+    carusel: [] as Cart[],
     page: {
       currentPage: 1,
       itemsPerPage: 4,
@@ -45,7 +47,7 @@ export const productsStore = defineStore({
       try {
         const response = await data;
         this.products = response.products as unknown as Cart[];
-
+        this.carusel = response.products.slice(0, 3) as Cart[];
         this.productforBanner();
       } catch (error) {
         console.error("Error fetching products:", error);

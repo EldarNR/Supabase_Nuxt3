@@ -10,8 +10,8 @@
             },
             "id": 1,
             "img": [
-                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
-                "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+                "https://i.pinimg.com/564x/36/d4/a1/36d4a1bd02b22bb9afc0945a249439a7.jpg",
+                "https://i.pinimg.com/564x/41/80/c6/4180c6039e47fa1fb5e93905a391f618.jpg"
             ],
             "category": "chair"
         },
@@ -21,10 +21,10 @@
             "price": 19.99,
             "id": 2,
             "img": [
-                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
-                "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+                "https://i.pinimg.com/564x/cc/00/f6/cc00f649cdbf2052bdaf4be3f0598165.jpg",
+                "https://i.pinimg.com/564x/6a/7c/b7/6a7cb709b2bbc2356188c8aed2c48556.jpg"
             ],
-            "category": "table"
+            "category": "nightstand"
         },
         {
             "title": "Product 3",
@@ -32,8 +32,8 @@
             "price": 14.99,
             "id": 3,
             "img": [
-                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
-                "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+                "https://i.pinimg.com/564x/23/fb/9e/23fb9ed31ef4977f97367b9ed74806aa.jpg",
+                "https://i.pinimg.com/564x/a9/9f/57/a99f57c314c3f3ea23f66b0409d9dedb.jpg"
             ],
             "category": "sofa"
         },
@@ -43,10 +43,10 @@
             "price": 9.99,
             "id": 4,
             "img": [
-                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
-                "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+                "https://i.pinimg.com/564x/32/07/9d/32079d949d036102c1470e49acbb2556.jpg",
+                "https://i.pinimg.com/564x/dd/62/52/dd625299e00111d12978e13ce6c6fde7.jpg"
             ],
-            "category": "chair"
+            "category": "table"
         },
         {
             "title": "Product 5",
@@ -58,10 +58,10 @@
             },
             "id": 5,
             "img": [
-                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
-                "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+                "https://i.pinimg.com/564x/cb/9e/8b/cb9e8bf9ecc68864ef28b328a51df19c.jpg",
+                "https://i.pinimg.com/564x/f6/84/06/f68406bfdb38779044ba624c6eed4225.jpg"
             ],
-            "category": "table"
+            "category": "chair"
         },
         {
             "title": "Product 6",
@@ -69,8 +69,8 @@
             "price": 17.99,
             "id": 6,
             "img": [
-                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
-                "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+                "https://i.pinimg.com/564x/e8/0f/66/e80f6621387a9b2e3f2cd1765a7dfd13.jpg",
+                "https://i.pinimg.com/736x/56/8e/41/568e41aef0f53572fb94c75e1f2af9fe.jpg"
             ],
             "category": "sofa"
         },
@@ -80,8 +80,8 @@
             "price": 8.99,
             "id": 7,
             "img": [
-                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
-                "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+                "https://i.pinimg.com/736x/72/a3/d9/72a3d9ffd504015ab6a69138df04666c.jpg",
+                "https://i.pinimg.com/564x/d4/96/ad/d496ad9a45f58424cc0fd7dc61052383.jpg"
             ],
             "category": "chair"
         },

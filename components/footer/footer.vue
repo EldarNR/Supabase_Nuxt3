@@ -5,11 +5,11 @@
         <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div
                 class="flex flex-col items-center gap-4 rounded-lg bg-indigo-600 p-6 shadow-lg sm:flex-row sm:justify-between">
-                <strong class="text-xl text-white sm:text-xl"> Make Your Next Career Move! </strong>
+                <strong class="text-xl text-white sm:text-xl"> Start shopping! </strong>
 
                 <a class="inline-flex items-center gap-2 rounded-full border border-white bg-white px-8 py-3 text-indigo-600 hover:bg-transparent hover:text-white focus:outline-none focus:ring active:bg-white/90"
                     href="#">
-                    <span class="text-sm font-medium"> Let's Get Started </span>
+                    <span class="text-sm font-medium">Let's go</span>
 
                     <svg class="size-5 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
