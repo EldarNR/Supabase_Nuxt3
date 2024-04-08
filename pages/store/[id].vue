@@ -8,9 +8,9 @@
                 <div class="flex flex-col items-center justify-center h-28 sm:h-80 sm:w-full lg:h-full">
                     <Carousel class="relative w-full max-w-xs shadow-sm " @init-api="(val) => emblaMainApi = val">
                         <CarouselContent>
-                            <CarouselItem v-for="( _, index ) in  productData?.img " :key="index">
-                                <NuxtImg :src="_" />
-                                <popup :img="_" />
+                            <CarouselItem v-for="( _, index ) in productData?.img " :key="index">
+                                <NuxtImg :src="_" @click="togglePopup(index)" />
+                                <popup v-if="isPopupVisible(index)" :img="_" :popup="true" @togglePopup="togglePopup" />
                             </CarouselItem>
                         </CarouselContent>
                         <CarouselPrevious />
@@ -19,7 +19,7 @@
 
                     <Carousel class="relative w-full max-w-xs" @init-api="(val) => emblaThumbnailApi = val">
                         <CarouselContent class="flex gap-1 ml-0">
-                            <CarouselItem v-for="( _, index ) in  productData?.img " :key="index"
+                            <CarouselItem v-for="( _, index ) in productData?.img " :key="index"
                                 class="pl-1 basis-1/12 cursor-pointer flex" @click="onThumbClick(index)">
                                 <a
                                     class="inline-block mt-2 rounded-full border border-indigo-400 bg-indigo-600 p-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500">
@@ -78,7 +78,6 @@ let text = {
     response: "We accept returns within 30 days of purchase. Read more about our return policy here."
 }
 
-
 const route = useRoute();
 const store = productsStore();
 const idPage = route.params.id;
@@ -108,6 +107,19 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
     emblaMainApi.on('reInit', onSelect)
 })
 
+const visiblePopups = ref<number[]>([]);
+
+const togglePopup = (index: number) => {
+    if (visiblePopups.value.includes(index)) {
+        visiblePopups.value = visiblePopups.value.filter((i) => i !== index);
+    } else {
+        visiblePopups.value.push(index);
+    }
+}
+
+const isPopupVisible = (index: number) => {
+    return visiblePopups.value.includes(index);
+}
 
 const productData = ref<Product | null>(null);
 let alerts = ref(false);
