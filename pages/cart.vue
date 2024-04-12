@@ -1,5 +1,6 @@
 <template>
     <section>
+        <detail :step="1" />
         <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
             <div class="mx-auto max-w-3xl">
                 <header class="text-center">
@@ -95,6 +96,7 @@
 <script lang="ts" setup>
 import { productsStore } from '~/stores/index';
 import Qualitity from '~/components/ui/quantity/Quantity.vue';
+import detail from '~/components/ui/detail/detail.vue';
 const store = productsStore();
 
 const isCartEmpty = () => {
