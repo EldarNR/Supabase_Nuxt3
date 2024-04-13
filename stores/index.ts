@@ -15,6 +15,7 @@ export const productsStore = defineStore({
     },
     currentPage: {},
     cart: [] as Cart[],
+    deliveryInfo: {},
   }),
 
   getters: {
@@ -81,7 +82,7 @@ export const productsStore = defineStore({
         const response = await data.products;
         this.products = response.filter((product) =>
           product.title.toLowerCase().includes(search.toLowerCase())
-        ) as unknown as Cart[];
+        ) as Cart[];
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -166,6 +167,10 @@ export const productsStore = defineStore({
     },
     sortPriceMin() {
       this.products.sort((a, b) => a.price - b.price);
+    },
+    getDelivery(obj: object) {
+      console.log(obj);
+      this.deliveryInfo = obj;
     },
   },
 });

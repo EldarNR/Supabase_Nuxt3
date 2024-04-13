@@ -62,11 +62,11 @@
                             placeholder="Any additional notes"></textarea>
                     </div>
 
-                    <button type="submit"
+                    <NuxtLink @click="sendInfo(delivery)" to="/payment"
                         class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
                         :disabled="isFormInvalid">
                         Go to payment
-                    </button>
+                    </NuxtLink>
                 </form>
             </div>
         </div>
@@ -76,7 +76,9 @@
 <script setup>
 import detail from '~/components/ui/detail/detail.vue';
 import { reactive, computed } from 'vue';
+import { productsStore } from '@/stores/index'
 
+const store = productsStore();
 const delivery = reactive({
     name: '',
     surname: '',
@@ -87,6 +89,11 @@ const delivery = reactive({
     method: '',
     notes: '',
 });
+
+const sendInfo = (obj) => {
+    console.log(obj)
+    store.getDelivery(obj);
+}
 
 const isFormInvalid = computed(() => {
     return (
