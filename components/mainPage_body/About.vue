@@ -14,7 +14,7 @@
                 <li>
                     <a href="#" class="group relative block">
                         <NuxtImg
-                            src="https://images.unsplash.com/photo-1618898909019-010e4e234c55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                            src="https://i.pinimg.com/564x/e8/0f/66/e80f6621387a9b2e3f2cd1765a7dfd13.jpg"
                             alt=""
                             class="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90" />
 
@@ -32,7 +32,7 @@
                 <li>
                     <a href="#" class="group relative block">
                         <NuxtImg
-                            src="https://images.unsplash.com/photo-1624623278313-a930126a11c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                            src="https://i.pinimg.com/736x/72/a3/d9/72a3d9ffd504015ab6a69138df04666c.jpg"
                             alt=""
                             class="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90" />
 
@@ -50,7 +50,7 @@
                 <li class="lg:col-span-2 lg:col-start-2 lg:row-span-2 lg:row-start-1">
                     <a href="#" class="group relative block">
                         <NuxtImg
-                            src="https://images.unsplash.com/photo-1593795899768-947c4929449d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80"
+                            src="https://i.pinimg.com/564x/23/fb/9e/23fb9ed31ef4977f97367b9ed74806aa.jpg"
                             alt=""
                             class="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90" />
 
@@ -70,6 +70,7 @@
 </template>
 
 <script lang="ts" setup>
+
 
 
 </script>

@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import data from "../data/products.json";
 import { type Cart } from "../components/type/card";
 import Carusel from "~/components/carusel/carusel.vue";
+// import { `]` } from "@supabase/supabase-js";
 
 export const productsStore = defineStore({
   id: "products",
@@ -169,8 +170,25 @@ export const productsStore = defineStore({
       this.products.sort((a, b) => a.price - b.price);
     },
     getDelivery(obj: object) {
-      console.log(obj);
       this.deliveryInfo = obj;
+    },
+
+    postMessage: async () => {
+      try {
+        console.log("work!");
+        const { data, error } = await supabase
+          .from("order") //ts ignore
+          .insert({
+            id: 1,
+            user_id: 1,
+            product_id: 403,
+            quantity: 1,
+            price: 10,
+          })
+          .select();
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 });
