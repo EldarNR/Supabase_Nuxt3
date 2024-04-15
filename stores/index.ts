@@ -1,8 +1,7 @@
 import { defineStore } from "pinia";
 import data from "../data/products.json";
 import { type Cart } from "../components/type/card";
-import Carusel from "~/components/carusel/carusel.vue";
-// import { `]` } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
 export const productsStore = defineStore({
   id: "products",
@@ -173,21 +172,32 @@ export const productsStore = defineStore({
       this.deliveryInfo = obj;
     },
 
-    postMessage: async () => {
+    async postMessage() {
+      const config = useRuntimeConfig();
+
+      // Проверка данных доставки на пустоту
+      if (!this.deliveryInfo || Object.keys(this.deliveryInfo).length === 0) {
+        console.error(
+          "Пожалуйста, заполните информацию о доставке перед отправкой заказа."
+        );
+        return; // Прервать выполнение функции, если данные пусты
+      }
+
       try {
-        console.log("work!");
+        const supabase = createClient(config.public.URL, config.public.KEY); // Создайте клиент Supabase
         const { data, error } = await supabase
-          .from("order") //ts ignore
-          .insert({
-            id: 1,
-            user_id: 1,
-            product_id: 403,
-            quantity: 1,
-            price: 10,
-          })
-          .select();
+          .from("order_product") // Замените на имя вашей таблицы
+          .insert(this.deliveryInfo);
+
+        if (error) {
+          console.error("Ошибка при отправке данных в Supabase:", error);
+          // Обработайте ошибки более конкретно, например, покажите пользователю сообщение об ошибке в зависимости от типа ошибки
+        } else {
+          console.log("Данные успешно отправлены в Supabase:", data);
+          // Обработайте успешный ответ, например, очистите корзину
+        }
       } catch (e) {
-        console.log(e);
+        console.error("Неожиданная ошибка:", e);
       }
     },
   },

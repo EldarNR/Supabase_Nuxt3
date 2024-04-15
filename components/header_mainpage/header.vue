@@ -10,11 +10,10 @@
             sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
             fugiat aliqua.</p>
           <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="#"
-              class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
-              started</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span
-                aria-hidden="true">→</span></a>
+            <NuxtLink to="/store"
+              class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              Get
+              started →</NuxtLink>
           </div>
 
         </div>
@@ -25,8 +24,7 @@
 
         <div class="text-center flex items-center justify-center">
 
-          <img
-            src="https://i0.wp.com/thesefourwallsblog.com/wp-content/uploads/2019/03/Hallway-makeover-13.jpg?resize=624%2C906&ssl=1"
+          <img src="https://i.pinimg.com/564x/75/3c/2b/753c2b5775cec1768b89e888235584f8.jpg"
             class="w-3/4  align-center" />
         </div>
 
