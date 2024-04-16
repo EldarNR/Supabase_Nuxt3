@@ -6,16 +6,15 @@
         </p>
     </div>
     <div class="container">
-        <p class="text-center text-xl font-medium mt-4 text-zinc-900 ">Recommended</p>
         <carusel />
         <banner />
-        <span class="text-xl text-zinc-900">Find what you need</span>
+        <span class="text-xl text-zinc-900">Find you need</span>
         <filters />
 
         <div class="max-w-screen-xl flex flex-col">
             <div class=" justify-center">
-                <div v-if="list.length >= 1" class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center">
-                    <card v-for="item in list" :card="item" :key="item.id" />
+                <div v-if="list.length >= 1" class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center justify-center ">
+                    <card v-for="item in list" :card="item" :key="item.id" class="w-72 h-80 " />
                 </div>
                 <span v-else-if="list.length === 0" class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center">
                     <div v-for="item in store.page.itemsPerPage" :key="item" class="flex flex-col space-y-3">
@@ -67,3 +66,5 @@ onMounted(() => {
     });
 });
 </script>
+
+<style scoped></style>

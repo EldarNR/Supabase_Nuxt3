@@ -10,17 +10,20 @@
             </div>
 
             <div class="relative bg-white pt-3">
-                <h3 class="text-md text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                <h3 class="text-md text-gray-700 group-hover:underline group-hover:underline-offset-4 truncate ">
                     {{ props.card.title }}
                 </h3>
 
-                <div class="mt-1.5 flex items-center justify-between text-gray-900">
+                <div class="mt-2 flex items-end justify-between text-gray-900">
                     <p class="tracking-wide">${{ props.card.price }}</p>
 
                     <p class="text-xs uppercase tracking-wide">{{ props.card.category }}</p>
                 </div>
             </div>
         </NuxtLink>
+        <div class=" pb-5 py-2">
+            <Button>Buy</Button>
+        </div>
     </div>
 </template>
 

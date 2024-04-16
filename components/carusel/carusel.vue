@@ -4,22 +4,23 @@
 
             <CarouselContent>
 
-                <CarouselItem v-for="item  in list" :key="item.id"
+                <CarouselItem v-for="item in list" :key="item.id"
                     class="w-full grid grid-cols-1  lg:grid-cols-3 lg:items-stretch">
                     <div v-if="list.length !== 0" class="grid place-content-center rounded bg-gray-200 p-6 sm:p-8">
                         <div class="mx-auto max-w-md text-center lg:text-left">
                             <header>
                                 <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">{{ item.title }}</h2><br>
-                                <p class="mt-5 text-gray-500">
+                                <p class="mt-2 text-gray-500">
                                     {{ item.description }}
-                                    <s v-if="item.discount" class="text-xl text-gray-900">
-                                        {{ item.price }} $
-                                    </s>
-                                    <span v-else class="text-xl text-gray-900">
-                                        {{ item.price }}
-                                    </span>
+
 
                                 </p>
+                                <s v-if="item.discount" class="text-xl mt-2 text-gray-900">
+                                    $ {{ item.price }}
+                                </s>
+                                <span v-else class="text-xl mt-2 text-gray-900">
+                                    $ {{ item.price }}
+                                </span>
                             </header>
                             <div class="flex hover:cursor-pointer focus:outline-none focus:ring hover:shadow">
                                 <a @click="addToCartAndShowAlert(item)" class="mt-8 inline-block rounded border border-gray-900 bg-gray-900 px-6 py-3 text-sm font-medium
@@ -35,15 +36,12 @@
                         </div>
                     </div>
 
-                    <div class="lg:col-span-1 grid">
-                        <ul class=" grid grid-cols-1 gap-2">
-                            <li class="block">
-                                <a href="#" class="flex  justify-stretch">
-
-                                    <NuxtImg v-for="image in item.img" :key="image" :src="image"
-                                        class="aspect-square p-2  rounded object-cover " alt="picture" />
-
-                                </a>
+                    <div class="lg:col-span-2 lg:py-8">
+                        <ul class="grid grid-cols-2 gap-4">
+                            <li class="block" v-for="image in item.img" :key="image">
+                                <NuxtImg :src="image"
+                                    class="aspect-square mx-auto rounded object-cover w-80 sm:w-62"
+                                    alt="picture" />
                             </li>
                         </ul>
                     </div>

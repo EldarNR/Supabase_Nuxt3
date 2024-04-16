@@ -1,14 +1,25 @@
 {
     "products": [
         {
-            "title": "Product 1",
-            "description": "Description of Product 1",
-            "price": 10.99,
-            "discount": {
-                "percentage": 10,
-                "priceAfterDiscount": 9.89
-            },
             "id": 1,
+            "title": "Стол из массива дуба",
+            "description": "Прочный и красивый стол из массива дуба, который прослужит вам долгие годы.",
+            "price": 2499,
+            "discount": {
+                "percentage": 15,
+                "priceAfterDiscount": 2124
+            },
+            "img": [
+                "https://i.pinimg.com/564x/e4/c7/cd/e4c7cd2bb8eac060294e6695b3b42d70.jpg",
+                "https://i.pinimg.com/564x/8a/2d/7e/8a2d7e9549573aec6e18225082bea003.jpg"
+            ],
+            "category": "table"
+        },
+        {
+            "id": 2,
+            "title": "Кресло из ротанга \"Кокон\"",
+            "description": "Уютное и стильное кресло из ротанга, которое станет идеальным местом для отдыха.",
+            "price": 1299,
             "img": [
                 "https://i.pinimg.com/564x/36/d4/a1/36d4a1bd02b22bb9afc0945a249439a7.jpg",
                 "https://i.pinimg.com/564x/41/80/c6/4180c6039e47fa1fb5e93905a391f618.jpg"
@@ -16,21 +27,10 @@
             "category": "chair"
         },
         {
-            "title": "Product 2",
-            "description": "Description of Product 2",
-            "price": 19.99,
-            "id": 2,
-            "img": [
-                "https://i.pinimg.com/564x/cc/00/f6/cc00f649cdbf2052bdaf4be3f0598165.jpg",
-                "https://i.pinimg.com/564x/6a/7c/b7/6a7cb709b2bbc2356188c8aed2c48556.jpg"
-            ],
-            "category": "nightstand"
-        },
-        {
-            "title": "Product 3",
-            "description": "Description of Product 3",
-            "price": 14.99,
             "id": 3,
+            "title": "Диван \"Честерфилд\"",
+            "description": "Классический диван \"Честерфилд\" из высококачественной кожи, который станет настоящим украшением вашей гостиной.",
+            "price": 6999,
             "img": [
                 "https://i.pinimg.com/564x/23/fb/9e/23fb9ed31ef4977f97367b9ed74806aa.jpg",
                 "https://i.pinimg.com/564x/a9/9f/57/a99f57c314c3f3ea23f66b0409d9dedb.jpg"
@@ -38,10 +38,10 @@
             "category": "sofa"
         },
         {
-            "title": "Product 4",
-            "description": "Description of Product 4",
-            "price": 9.99,
             "id": 4,
+            "title": "Журнальный столик из стекла и металла",
+            "description": "Стильный и современный журнальный столик из стекла и металла, который станет идеальным дополнением к вашему интерьеру.",
+            "price": 999,
             "img": [
                 "https://i.pinimg.com/564x/32/07/9d/32079d949d036102c1470e49acbb2556.jpg",
                 "https://i.pinimg.com/564x/dd/62/52/dd625299e00111d12978e13ce6c6fde7.jpg"
@@ -49,14 +49,14 @@
             "category": "table"
         },
         {
-            "title": "Product 5",
-            "description": "Description of Product 5",
-            "price": 12.99,
+            "id": 5,
+            "title": "Подвесное кресло \"Кокон\"",
+            "description": "Уютное и стильное подвесное кресло, которое станет идеальным местом для отдыха и релаксации.",
+            "price": 1599,
             "discount": {
                 "percentage": 10,
-                "priceAfterDiscount": 11.69
+                "priceAfterDiscount": 1439
             },
-            "id": 5,
             "img": [
                 "https://i.pinimg.com/564x/cb/9e/8b/cb9e8bf9ecc68864ef28b328a51df19c.jpg",
                 "https://i.pinimg.com/564x/f6/84/06/f68406bfdb38779044ba624c6eed4225.jpg"
@@ -64,36 +64,10 @@
             "category": "chair"
         },
         {
-            "title": "Product 6",
-            "description": "Description of Product 6",
-            "price": 17.99,
             "id": 6,
-            "img": [
-                "https://i.pinimg.com/564x/e8/0f/66/e80f6621387a9b2e3f2cd1765a7dfd13.jpg",
-                "https://i.pinimg.com/736x/56/8e/41/568e41aef0f53572fb94c75e1f2af9fe.jpg"
-            ],
-            "category": "sofa"
-        },
-        {
-            "title": "Product 7",
-            "description": "Description of Product 7",
-            "price": 8.99,
-            "id": 7,
-            "img": [
-                "https://i.pinimg.com/736x/72/a3/d9/72a3d9ffd504015ab6a69138df04666c.jpg",
-                "https://i.pinimg.com/564x/d4/96/ad/d496ad9a45f58424cc0fd7dc61052383.jpg"
-            ],
-            "category": "chair"
-        },
-        {
-            "title": "クルミのローテーブル",
-            "description": "側面は緩やかなカーブをつけ、柔らかな雰囲気になるようにしています。＃センターテーブル ＃無垢材テーブル ＃ローテーブル",
-            "price": 11.99,
-            "discount": {
-                "percentage": 10,
-                "priceAfterDiscount": 10.79
-            },
-            "id": 8,
+            "title": "Стол из массива сосны",
+            "description": "Прочный и функциональный стол из массива сосны, который станет незаменимым помощником на вашей кухне.",
+            "price": 1899,
             "img": [
                 "https://i.pinimg.com/564x/ce/75/6e/ce756e3434fb33b5c9269c17fbf2ed4e.jpg",
                 "https://i.pinimg.com/564x/14/d8/d9/14d8d9f0168d33902a70351af267b995.jpg"
@@ -101,32 +75,32 @@
             "category": "table"
         },
         {
-            "title": "Adley Mid-Century",
-            "description": "Description of Product 9",
-            "price": 16.99,
-            "id": 9,
+            "id": 7,
+            "title": "Кресло-качалка из ротанга",
+            "description": "Удобное и расслабляющее кресло-качалка из ротанга, которое поможет вам снять стресс и улучшить сон.",
+            "price": 1499,
             "img": [
-                "https://i.pinimg.com/564x/0c/77/b5/0c77b59bbafa6309d023fff1b5e2fa37.jpg",
-                "https://i.pinimg.com/564x/dd/db/e5/dddbe56d5e8385ec7f2d26ce36f268b8.jpg"
-            ],
-            "category": "sofa"
-        },
-        {
-            "title": "Product 10",
-            "description": "Description of Product 10",
-            "price": 13.99,
-            "id": 10,
-            "img": [
-                "https://i.pinimg.com/564x/80/c7/94/80c79483ab2d87b76fbf87214e62c919.jpg",
-                "https://i.pinimg.com/564x/77/1e/8a/771e8ab581d549b3c6f80f4a3a7a5e70.jpg"
+                "https://i.pinimg.com/736x/72/a3/d9/72a3d9ffd504015ab6a69138df04666c.jpg",
+                "https://i.pinimg.com/564x/d4/96/ad/d496ad9a45f58424cc0fd7dc61052383.jpg"
             ],
             "category": "chair"
         },
         {
-            "title": "コーヒーテーブル",
-            "description": "Hans J Wegner ハンス J ウェグナー JH 575　コーヒーテーブル 時を経ても色あせない本物の北欧家具｜ファビュラス・モダーンズ",
-            "price": 15.99,
-            "id": 11,
+            "id": 8,
+            "title": "Угловой диван \"Честерфилд\"",
+            "description": "Угловой диван \"Честерфилд\" из высококачественной кожи, который станет настоящим центром вашей гостиной.",
+            "price": 8999,
+            "img": [
+                "https://i.pinimg.com/564x/e8/0f/66/e80f6621387a9b2e3f2cd1765a7dfd13.jpg",
+                "https://i.pinimg.com/736x/56/8e/41/568e41aef0f53572fb94c75e1f2af9fe.jpg"
+            ],
+            "category": "sofa"
+        },
+        {
+            "id": 9,
+            "title": "Журнальный столик из массива дерева",
+            "description": "Стильный и экологичный журнальный столик из массива дерева, который станет идеальным дополнением к вашему интерьеру.",
+            "price": 1199,
             "img": [
                 "https://i.pinimg.com/564x/0a/2d/5c/0a2d5cdb3f803368c6406b2440d4709b.jpg",
                 "https://i.pinimg.com/564x/9f/64/17/9f6417f3a8c6067dfc05ef48ff087f43.jpg"
@@ -134,19 +108,136 @@
             "category": "table"
         },
         {
-            "title": "コーヒーテーブル ",
-            "description": "Hans J Wegner ハンス J ウェグナー JH 575　コーヒーテーブル 時を経ても色あせない本物の北欧家具｜ファビュラス・モダーンズ",
-            "price": 12.99,
-            "discount": {
-                "percentage": 20,
-                "priceAfterDiscount": 10.39
-            },
-            "id": 12,
+            "id": 10,
+            "title": "Барный стул из металла и кожи",
+            "description": "Стильный и удобный барный стул из металла и кожи, который станет идеальным дополнением к вашей барной стойке.",
+            "price": 799,
             "img": [
-                "https://i.pinimg.com/564x/d0/92/74/d092745f3d51642820ea5a2b0ae62be0.jpg",
-                "https://i.pinimg.com/564x/ee/75/ad/ee75ad91633279eb6e619838b3fe56ed.jpg"
+                "https://i.pinimg.com/564x/80/c7/94/80c79483ab2d87b76fbf87214e62c919.jpg",
+                "https://i.pinimg.com/564x/77/1e/8a/771e8ab581d549b3c6f80f4a3a7a5e70.jpg"
+            ],
+            "category": "chair"
+        },
+        {
+            "id": 11,
+            "title": "Диван-кровать \"Честерфилд\"",
+            "description": "Функциональный и стильный диван-кровать \"Честерфилд\" из высококачественной кожи, который станет идеальным решением для небольшой квартиры.",
+            "price": 7499,
+            "img": [
+                "https://i.pinimg.com/564x/0c/77/b5/0c77b59bbafa6309d023fff1b5e2fa37.jpg",
+                "https://i.pinimg.com/564x/dd/db/e5/dddbe56d5e8385ec7f2d26ce36f268b8.jpg"
             ],
             "category": "sofa"
+        },
+        {
+            "id": 12,
+            "title": "Обеденный стол из стекла и металла",
+            "description": "Стильный и современный обеденный стол из стекла и металла, который станет идеальным местом для семейных ужинов.",
+            "price": 1999,
+            "img": [
+                "https://i.pinimg.com/564x/5f/fd/8b/5ffd8bc67a3ebe799cacf8a2fb6034b7.jpg",
+                "https://i.pinimg.com/564x/c1/00/87/c10087ff0f9ffcac01417d2508286899.jpg"
+            ],
+            "category": "table"
+        },
+        {
+            "id": 13,
+            "title": "Кресло-мешок",
+            "description": "Удобное и расслабляющее кресло-мешок, которое станет идеальным местом для отдыха и игр.",
+            "price": 599,
+            "img": [
+                "https://i.pinimg.com/564x/80/d1/d7/80d1d715ca0f6075faa459f8a39b7f3d.jpg",
+                "https://i.pinimg.com/564x/bf/52/d2/bf52d224f6ce2f0ecc15f2039fd7ec7b.jpg"
+            ],
+            "category": "chair"
+        },
+        {
+            "id": 14,
+            "title": "Кресло-качалка из массива дерева",
+            "description": "Удобное и расслабляющее кресло-качалка из массива дерева, которое станет идеальным местом для отдыха и чтения.",
+            "price": 1699,
+            "img": [
+                "https://i.pinimg.com/564x/29/a4/9f/29a49f2100658c009fd793c012bc722b.jpg",
+                "https://i.pinimg.com/736x/e0/25/63/e02563486160c9272e87a90658c67096.jpg"
+            ],
+            "category": "chair"
+        },
+        {
+            "id": 15,
+            "title": "Угловой диван \"Современник\"",
+            "description": "Стильный и функциональный угловой диван \"Современник\", который станет идеальным решением для вашей гостиной.",
+            "price": 5499,
+            "img": [
+                "https://i.pinimg.com/564x/02/25/1e/02251e61b0f31a2c0210c1e91df683f4.jpg",
+                "https://i.pinimg.com/564x/c9/a5/a3/c9a5a36a697f78749bf296f93b43fbdb.jpg"
+            ],
+            "category": "sofa"
+        },
+        {
+            "id": 15,
+            "title": "Угловой диван \"Современник\"",
+            "description": "Стильный и функциональный угловой диван \"Современник\", который станет идеальным решением для вашей гостиной.",
+            "price": 5499,
+            "img": [
+                "https://i.pinimg.com/564x/46/fa/19/46fa19125f0ee9b4d601e8e363d13470.jpg",
+                "https://i.pinimg.com/564x/cb/9f/0c/cb9f0c4f6a83eadcbfe82ff5dc7a76c5.jpg"
+            ],
+            "category": "sofa"
+        },
+        {
+            "id": 16,
+            "title": "Стол-трансформер",
+            "description": "Функциональный и практичный стол-трансформер, который станет идеальным решением для небольшой квартиры.",
+            "price": 1499,
+            "img": [
+                "https://i.pinimg.com/564x/4e/f4/bb/4ef4bbf138c2847ae0a0887c2868e7b2.jpg",
+                "https://i.pinimg.com/564x/04/74/34/047434c10f9c5926e8d7865634c4e727.jpg"
+            ],
+            "category": "table"
+        },
+        {
+            "id": 17,
+            "title": "Детское кресло-качалка",
+            "description": "Удобное и безопасное детское кресло-качалка, которое станет любимым местом вашего ребенка.",
+            "price": 899,
+            "img": [
+                "https://i.pinimg.com/564x/28/ff/98/28ff9824195f44f471c892a2159296ca.jpg",
+                "https://i.pinimg.com/736x/d8/8d/a2/d88da24714308bc854f79dae45397cf9.jpg"
+            ],
+            "category": "chair"
+        },
+        {
+            "id": 18,
+            "title": "Кресло-яйцо",
+            "description": "Стильное и комфортное кресло-яйцо, которое станет идеальным местом для отдыха и релаксации.",
+            "price": 1999,
+            "img": [
+                "https://i.pinimg.com/564x/5f/06/a9/5f06a9ee550cca95c9cfe4c58cb6bc13.jpg",
+                "https://i.pinimg.com/564x/61/d0/52/61d052f8bc3124b1b656f89668f21b34.jpg"
+            ],
+            "category": "chair"
+        },
+        {
+            "id": 19,
+            "title": "Диван \"Лофт\"",
+            "description": "Стильный и современный диван \"Лофт\", который станет идеальным дополнением к вашему интерьеру в стиле лофт.",
+            "price": 6299,
+            "img": [
+                "https://i.pinimg.com/736x/7d/e3/83/7de38358009d1606468b4b32fe2abe15.jpg",
+                "https://i.pinimg.com/564x/50/bd/49/50bd4901d4848e3a30f08e4ffe3844d1.jpg"
+            ],
+            "category": "sofa"
+        },
+        {
+            "id": 20,
+            "title": "Стол из массива дуба с резным узором",
+            "description": "Роскошный и изысканный стол из массива дуба с резным узором, который станет настоящим украшением вашей гостиной.",
+            "price": 3999,
+            "img": [
+                "https://i.pinimg.com/564x/08/11/b2/0811b29ce1a27720ea74b4a726223762.jpg",
+                "https://i.pinimg.com/564x/02/9a/8f/029a8f84933c382bf4006c6c52441032.jpg"
+            ],
+            "category": "table"
         }
     ]
 }

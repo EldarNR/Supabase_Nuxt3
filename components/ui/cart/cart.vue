@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <svg @click="showCart = true" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+        <svg @click="showCart = true" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
             viewBox="0 0 24 24">
             <title>cart</title>
             <path
@@ -20,7 +20,7 @@
                 </button>
 
                 <div class="mt-4 space-y-6">
-                    <ul class=" space-y-4 max-h-56 overflow-auto">
+                    <ul class=" space-y-4 max-h-56 overflow-auto rounded-xl border border-gray-700 p-2">
                         <NuxtLink v-for="item in cart"
                             class="flex items-center gap-4 rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition  hover:bg-gray-300"
                             :to="`/store/${item.id}`">
@@ -36,6 +36,7 @@
 
 
                         </NuxtLink>
+
                         <li v-if="cart.length === 0" class="text-center">
                             <span class="font-medium text-sm text-bold">Cart is empty</span>
                         </li>

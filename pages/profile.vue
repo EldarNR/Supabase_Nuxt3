@@ -1,7 +1,4 @@
 <template>
-    <div>
-        This is profile page
-    </div>
     <article class="rounded-xl border border-gray-700 p-6 m-3">
         <div class="flex items-center gap-4">
             <img alt="user_avatar" :src="user?.user_metadata.avatar_url" class="size-16 rounded-full object-cover" />

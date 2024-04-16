@@ -22,8 +22,7 @@
                             <NuxtLink to="/profile">
                                 <DropdownMenuItem>Profile</DropdownMenuItem>
                             </NuxtLink>
-                            <DropdownMenuItem>Billing</DropdownMenuItem>
-                            <DropdownMenuItem>Team</DropdownMenuItem>
+
                             <DropdownMenuItem class="bg-red-600 text-white" @click="logOut">Log out</DropdownMenuItem>
                         </DropdownMenuContent>
 

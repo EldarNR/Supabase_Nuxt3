@@ -8,8 +8,9 @@
                 <div class="flex flex-col items-center justify-center h-28 sm:h-80 sm:w-full lg:h-full">
                     <Carousel class="relative w-full max-w-xs shadow-sm " @init-api="(val) => emblaMainApi = val">
                         <CarouselContent>
-                            <CarouselItem v-for="( _, index ) in productData?.img " :key="index">
-                                <NuxtImg :src="_" @click="togglePopup(index)" />
+                            <CarouselItem v-for="( _, index ) in productData?.img " :key="index"
+                                class="flex items-center justify-center">
+                                <NuxtImg :src="_" @click="togglePopup(index)" class="" />
                                 <popup v-if="isPopupVisible(index)" :img="_" :popup="true" @togglePopup="togglePopup" />
                             </CarouselItem>
                         </CarouselContent>
@@ -50,7 +51,8 @@
                 </div>
             </div>
         </div>
-        <FAQ :text="text" class="mt-6" />
+        <span class="mt-3"> Часто задаваемые вопросы</span>
+        <FAQ v-for="item in text" :text="item" class="mt-6" />
     </div>
 </template>
 
@@ -73,10 +75,19 @@ type Product = {
     img: string[];
 }
 
-let text = {
-    question: "What is the return policy?",
-    response: "We accept returns within 30 days of purchase. Read more about our return policy here."
-}
+let text = [{
+    question: "Доставка",
+    response: "Время доставки в ваш регион составляет от 5 до 14 рабочих дней.\nМы также предлагаем экспресс-доставку за дополнительную плату."
+},
+{
+    question: "Возврат и обмен товара",
+    response: "Если товар не подходит вам, вы можете вернуть его в течение 14 дней после получения.\nМы предоставляем полный возврат стоимости товара или обмен на другой товар."
+},
+{
+    question: "Гарантия",
+    response: "Мы предоставляем гарантию на этот товар на 1 лет."
+}];
+
 
 const route = useRoute();
 const store = productsStore();

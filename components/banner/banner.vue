@@ -1,6 +1,6 @@
 <template>
     <section id="banner" class="text-center">
-        <span class="text-xl font-medium">Sale promotion</span>
+        <span class="text-xl font-medium text-red-400">Sale promotion</span>
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 sm:py-12 lg:px-8">
             <div class=" lg:items-stretch">
                 <div class="lg:col-span-2 ">
