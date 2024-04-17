@@ -14,7 +14,9 @@
                     <div class="flex items-center gap-2 ">
 
                         <DropdownMenuTrigger>
-                            <NuxtImg :src="user.user_metadata.avatar_url" class="rounded-full h-10 w-10" />
+                            <NuxtImg
+                                :src="user.user_metadata.avatar_url || `https://i.pinimg.com/736x/2c/33/9a/2c339af1688746a6ff514da0ea9980d9.jpg`"
+                                class="rounded-full h-10 w-10" />
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
                             <DropdownMenuLabel>My Account</DropdownMenuLabel>
