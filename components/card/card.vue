@@ -36,6 +36,9 @@
 
 <script lang="ts" setup>
 import { defineProps } from 'vue'
+import { productsStore } from '@/stores/index'
+import { type favourite } from '../type/favourite';
+
 
 type Card = {
     title: string;
@@ -45,20 +48,34 @@ type Card = {
     img: string[];
     category: string;
 }
-
+const store = productsStore();
 const isFavorite = ref(false);
 const props = defineProps({
     card: { type: Object as () => Card, required: true },
 })
-const toggleFavorite = () => {
-    isFavorite.value = !isFavorite.value;
-    localStorage.setItem('isFavorite', JSON.stringify(isFavorite.value)); // Сохраняем состояние в localStorage
-}
 
-onMounted(() => {
-    const storedFavorite = localStorage.getItem('isFavorite');
-    if (storedFavorite !== null) {
-        isFavorite.value = JSON.parse(storedFavorite);
+async function loadFavorites() {
+    await store.getFavProduct();
+    if (store.favorites) { // Check if favorites is not null
+        const favoriteIds = store.favorites.map((favorite) => favorite.product_id);
+        isFavorite.value = favoriteIds.includes(props.card.id);
+    } else {
+        // Handle the case where favorites is null (e.g., display a message)
+        console.warn("Favorites data not yet available");
     }
-});
+}
+const toggleFavorite = async () => {
+    const productId = props.card.id;
+
+    try {
+        await store.postProductFav(productId);
+        console.log('Product added to favorites');
+        // Refresh favorite state
+    } catch (error) {
+        console.error('Error adding product to favorites:', error);
+    }
+};
+
+onMounted(loadFavorites);
+
 </script>

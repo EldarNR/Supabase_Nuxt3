@@ -29,13 +29,13 @@ const FORGOTTEN_PASSWORD_URL = process.env.FORGOTTEN_PASSWORD_URL || 'http://loc
 
 const authView = ref('sign_in')
 
-async function signUpNewUser(email, password) {
+async function signUpNewUser(email: string, password: string) {
     // Используйте введенные пользователем данные
     const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
         options: {
-            emailRedirectTo: 'https://example.com/welcome', // Обновите на нужный URL
+            emailRedirectTo: 'http://localhost:3000/login', // Обновите на нужный URL
         },
     })
 

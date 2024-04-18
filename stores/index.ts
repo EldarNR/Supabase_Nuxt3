@@ -1,7 +1,9 @@
+import { createClient } from "@supabase/supabase-js";
 import { defineStore } from "pinia";
+
 import data from "../data/products.json";
 import { type Cart } from "../components/type/card";
-import { createClient } from "@supabase/supabase-js";
+import { type favourite } from "~/components/type/favourite";
 
 export const productsStore = defineStore({
   id: "products",
@@ -16,6 +18,7 @@ export const productsStore = defineStore({
     currentPage: {},
     cart: [] as Cart[],
     deliveryInfo: {},
+    favourite: [] as favourite[] | null,
   }),
 
   getters: {
@@ -198,6 +201,56 @@ export const productsStore = defineStore({
         }
       } catch (e) {
         console.error("Неожиданная ошибка:", e);
+      }
+    },
+    async postProductFav(idProduct: number) {
+      const config = useRuntimeConfig();
+      const supabase = createClient(config.public.URL, config.public.KEY);
+
+      // Get the current user ID from Supabase auth
+      const user = supabase.auth.getUser();
+
+      if (!user) {
+        console.error(
+          "Необходимо войти в систему, чтобы добавить продукт в избранные."
+        );
+        return; // Prevent further execution if not logged in
+      }
+
+      const { data, error } = await supabase
+        .from("favourite") // Replace with your favorites table name
+        .insert({
+          user_uid: (await user).data.user?.id, // Add user ID to the data
+          product_id: idProduct,
+        });
+
+      if (error) {
+        console.error("Ошибка при добавлении продукта в избранное:", error);
+        // Handle errors more specifically (e.g., display user-friendly messages)
+      } else {
+        console.log("Продукт успешно добавлен в избранное:", data);
+        // Handle success (e.g., show confirmation message)
+      }
+    },
+    async getFavProduct() {
+      const config = useRuntimeConfig();
+      const supabase = createClient(config.public.URL, config.public.KEY);
+
+      // Get the current user ID from Supabase auth
+      const user = supabase.auth.getUser();
+
+      let { data: favourite, error } = await supabase
+        .from("favourite")
+        .select("*")
+        .eq("user_uid", (await user).data.user?.id);
+
+      if (error) {
+        console.error("Ошибка:", error);
+        // Handle errors more specifically (e.g., display user-friendly messages)
+      } else {
+        console.log("Продукт был успешно принят", favourite);
+        this.favourite = favourite;
+        // Handle success (e.g., show confirmation message)
       }
     },
   },

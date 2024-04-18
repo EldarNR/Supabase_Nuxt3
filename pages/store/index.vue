@@ -56,7 +56,7 @@ const page = reactive({
 
 onMounted(() => {
     store.fetchProductsFromDB();
-
+    store.getFavProduct();
     watchEffect(() => {
         list.value = store.paginatedProducts;
 
