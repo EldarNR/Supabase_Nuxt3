@@ -45,6 +45,13 @@ export const productsStore = defineStore({
     grandTotal(): number {
       return this.totalPrice + this.VAT;
     },
+    favouriteProducts(): Cart[] {
+      return this.products.map((product) => {
+        const isFavourite =
+          this.favourite?.some((fav) => fav.product_id === product.id) ?? false;
+        return { ...product, favourite: isFavourite };
+      });
+    },
   },
   actions: {
     async fetchProductsFromDB() {
@@ -250,7 +257,6 @@ export const productsStore = defineStore({
       } else {
         console.log("Продукт был успешно принят", favourite);
         this.favourite = favourite;
-        // Handle success (e.g., show confirmation message)
       }
     },
   },
