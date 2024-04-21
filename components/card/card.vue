@@ -26,7 +26,7 @@
             <Button class="mb-2">Buy</Button>
             <Button class="m-2 mb-2 bg-red-200"
                 :class="{ 'bg-red-400': props.card.favourite, 'bg-gray-900': !props.card.favourite }"
-                @click="toggleFavorite">
+                @click="switchButton">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24">
                     <title>heart</title>
                     <path
@@ -53,23 +53,38 @@ type Card = {
     favourite?: boolean;
 }
 
-let isFavourite = ref(false);
+
 
 const store = productsStore();
 const props = defineProps({
     card: { type: Object as () => Card, required: true },
     // Change type to number, assuming it's a product ID
 })
+const productId = props.card.id;
+const isFavourite = ref(props.card.favourite);
 
-const toggleFavorite = async () => {
-    const productId = props.card.id;
+watch(isFavourite, (newValue) => {
+    console.log(newValue)
+})
 
-    try {
-        await store.postProductFav(productId);
-        console.log('Product added to favorites');
-        // Refresh favorite state
-    } catch (error) {
-        console.error('Error adding product to favorites:', error);
+const switchButton = async () => {
+    if (isFavourite.value === true) {
+        try {
+            await store.deleteFavProduct(productId)
+            console.log('Product deleted!')
+        }
+        catch (error) {
+            console.error('error')
+        }
     }
-};
+    else {
+        try {
+            await store.postProductFav(productId);
+            console.log('Product added to favorites');
+            // Refresh favorite state
+        } catch (error) {
+            console.error('Error adding product to favorites:', error);
+        }
+    }
+}
 </script>

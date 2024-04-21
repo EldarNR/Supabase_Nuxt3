@@ -25,7 +25,7 @@ export const productsStore = defineStore({
     paginatedProducts(): Cart[] {
       const startIndex = (this.page.currentPage - 1) * this.page.itemsPerPage;
       const endIndex = startIndex + this.page.itemsPerPage;
-      return this.products.slice(startIndex, endIndex);
+      return this.ProductswithFavourite.slice(startIndex, endIndex); // Используем favouriteProducts для пагинации
     },
     totalPages(): number {
       return Math.ceil(this.products.length / this.page.itemsPerPage);
@@ -45,7 +45,7 @@ export const productsStore = defineStore({
     grandTotal(): number {
       return this.totalPrice + this.VAT;
     },
-    favouriteProducts(): Cart[] {
+    ProductswithFavourite(): Cart[] {
       return this.products.map((product) => {
         const isFavourite =
           this.favourite?.some((fav) => fav.product_id === product.id) ?? false;
@@ -257,6 +257,22 @@ export const productsStore = defineStore({
       } else {
         console.log("Продукт был успешно принят", favourite);
         this.favourite = favourite;
+      }
+    },
+    async deleteFavProduct(idProduct: number) {
+      const config = useRuntimeConfig();
+      const supabase = createClient(config.public.URL, config.public.KEY);
+
+      const { error } = await supabase
+        .from("favourite")
+        .delete()
+        .eq("product_id", idProduct);
+
+      if (error) {
+        console.error("Ошибка:", error);
+        // Handle errors more specifically (e.g., display user-friendly messages)
+      } else {
+        console.log("Продукт был удаленно");
       }
     },
   },

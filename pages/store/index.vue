@@ -8,7 +8,7 @@
     <div class="container">
         <carusel />
         <banner />
-        <span class="text-xl text-zinc-900">Find you need</span>
+        <span class="text-xl text-zinc-900">Catalog</span>
         <filters />
 
         <div class="max-w-screen-xl flex flex-col">
@@ -64,7 +64,7 @@ onMounted(() => {
     store.fetchProductsFromDB();
     store.getFavProduct();
     watchEffect(() => {
-        list.value = store.favouriteProducts;
+        list.value = store.paginatedProducts;
 
         page.total = store.page.itemsPerPage;
         page.page = store.page.currentPage;
