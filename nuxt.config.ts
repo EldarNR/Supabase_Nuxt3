@@ -46,8 +46,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      URL: process.env.SUPABASE_URL,
-      KEY: process.env.SUPABASE_KEY,
+      URL: "https://jzkasefbtoupjkvkluyf.supabase.co",
+      KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6a2FzZWZidG91cGprdmtsdXlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk5OTQzMDIsImV4cCI6MjAyNTU3MDMwMn0.HBJ0_hh5X0bqqqb5-IC_EQg4b_vmUMuwCP3YmDlZ14I",
       URl: "http://localhost:3000/",
     },
   },

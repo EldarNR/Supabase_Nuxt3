@@ -8,7 +8,7 @@
                 <CardContent>
                     <Auth :supabaseClient="supabaseClient" :appearance="{ theme: ThemeSupa }"
                         :providers="['google', 'github', 'discord']" socialLayout="horizontal" class="mt-4"
-                        v-model:view="authView" :redirectTo="redirectTo" />
+                        :redirectTo="'http://localhost:3000/'"  />
                 </CardContent>
             </Card>
         </div>
@@ -28,8 +28,8 @@ const REDIRECT_TO_URL = process.env.REDIRECT_TO_URL || 'http://localhost:3000/'
 const FORGOTTEN_PASSWORD_URL = process.env.FORGOTTEN_PASSWORD_URL || 'http://localhost:3000/forgot-password'
 
 const authView = ref('sign_in')
-
-async function signUpNewUser(email: string, password: string) {
+console.log(supabaseClient.auth)
+async function signUpNewUser() {
     // Используйте введенные пользователем данные
     const { data, error } = await supabaseClient.auth.signUp({
         email,

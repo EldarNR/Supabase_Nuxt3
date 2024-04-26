@@ -12,5 +12,3 @@ onMounted(() => {
         review.fetchReviews();
 })
 </script>
-
-<style></style>

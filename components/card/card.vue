@@ -26,7 +26,7 @@
             <Button class="mb-2">Buy</Button>
             <Button class="m-2 mb-2 bg-red-200"
                 :class="{ 'bg-red-400': props.card.favourite, 'bg-gray-900': !props.card.favourite }"
-                @click="switchButton">
+                @click="switchButton(isFavourite.value)">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24">
                     <title>heart</title>
                     <path
@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from 'vue'
+import { defineProps, ref, watch } from 'vue'
 import { productsStore } from '@/stores/index'
 
 type Card = {
@@ -52,8 +52,6 @@ type Card = {
     category: string;
     favourite?: boolean;
 }
-
-
 
 const store = productsStore();
 const props = defineProps({
@@ -67,10 +65,10 @@ watch(isFavourite, (newValue) => {
     console.log(newValue)
 })
 
-const switchButton = async () => {
-    if (isFavourite.value === true) {
+const switchButton = () => {
+    if (isFavourite.value) {
         try {
-            await store.deleteFavProduct(productId)
+            store.deleteFavProduct(productId)
             console.log('Product deleted!')
         }
         catch (error) {
@@ -79,7 +77,7 @@ const switchButton = async () => {
     }
     else {
         try {
-            await store.postProductFav(productId);
+            store.postProductFav(productId);
             console.log('Product added to favorites');
             // Refresh favorite state
         } catch (error) {
