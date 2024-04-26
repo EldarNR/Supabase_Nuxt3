@@ -34,11 +34,10 @@ export default defineNuxtConfig({
     },
   ],
   routeRules: {
-    // Homepage pre-rendered at build time
-    "/": { prerender: true },
-    // Products page generated on demand, revalidates in background, cached until API response changes
-    "/store": { swr: true },
-    // Product page generated on demand, revalidates in background, cached for 1 hour (3600 seconds)
+    "/*": { redirect: "/redirect-route" },
+    "/modify-headers-route": { headers: { "x-magic-of": "nuxt and vercel" } },
+    // Enables client-side rendering
+    "/spa": { ssr: true },
   },
   supabase: {
     // Options
