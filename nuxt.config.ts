@@ -33,6 +33,13 @@ export default defineNuxtConfig({
        */
     },
   ],
+  routeRules: {
+    // Homepage pre-rendered at build time
+    "/": { prerender: true },
+    // Products page generated on demand, revalidates in background, cached until API response changes
+    "/store": { swr: true },
+    // Product page generated on demand, revalidates in background, cached for 1 hour (3600 seconds)
+  },
   supabase: {
     // Options
     redirectOptions: {
