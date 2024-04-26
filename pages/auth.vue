@@ -28,25 +28,6 @@ const REDIRECT_TO_URL = process.env.REDIRECT_TO_URL || 'http://localhost:3000/'
 const FORGOTTEN_PASSWORD_URL = process.env.FORGOTTEN_PASSWORD_URL || 'http://localhost:3000/forgot-password'
 
 const authView = ref('sign_in')
-console.log(supabaseClient.auth)
-async function signUpNewUser() {
-    // Используйте введенные пользователем данные
-    const { data, error } = await supabaseClient.auth.signUp({
-        email,
-        password,
-        options: {
-            emailRedirectTo: 'http://localhost:3000/login', // Обновите на нужный URL
-        },
-    })
-
-    if (error) {
-        console.error('Ошибка регистрации:', error)
-        // Обработайте ошибку регистрации
-    } else {
-        console.log('Регистрация успешна:', data)
-        // ... (Перенаправление или другие действия после успешной регистрации)
-    }
-}
 
 
 const redirectTo = computed(() => {

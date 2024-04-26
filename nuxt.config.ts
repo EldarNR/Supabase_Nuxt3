@@ -33,12 +33,6 @@ export default defineNuxtConfig({
        */
     },
   ],
-  routeRules: {
-    "/*": { redirect: "/redirect-route" },
-    "/modify-headers-route": { headers: { "x-magic-of": "nuxt and vercel" } },
-    // Enables client-side rendering
-    "/spa": { ssr: true },
-  },
   supabase: {
     // Options
     redirectOptions: {
