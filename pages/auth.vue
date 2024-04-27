@@ -8,7 +8,7 @@
                 <CardContent>
                     <Auth :supabaseClient="supabaseClient" :appearance="{ theme: ThemeSupa }"
                         :providers="['google', 'github', 'discord']" socialLayout="horizontal" class="mt-4"
-                        :redirectTo="'http://localhost:3000/'"  />
+                        :redirectTo="'http://localhost:3000/'" />
                 </CardContent>
             </Card>
         </div>
@@ -24,8 +24,8 @@ const config = useRuntimeConfig()
 const supabaseClient = useSupabaseClient()
 
 // Используйте переменные среды или конфигурацию для URL-адресов
-const REDIRECT_TO_URL = process.env.REDIRECT_TO_URL || 'http://localhost:3000/'
-const FORGOTTEN_PASSWORD_URL = process.env.FORGOTTEN_PASSWORD_URL || 'http://localhost:3000/forgot-password'
+const REDIRECT_TO_URL = config.public.URL;
+const FORGOTTEN_PASSWORD_URL = process.env.FORGOTTEN_PASSWORD_URL;
 
 const authView = ref('sign_in')
 

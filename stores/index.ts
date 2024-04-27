@@ -194,7 +194,7 @@ export const productsStore = defineStore({
       }
 
       try {
-        const supabase = createClient(config.public.URL, config.public.KEY); // Создайте клиент Supabase
+        const supabase = createClient(config.public.SUPABASE_PUBLIC_URL, config.public.SUPABASE_KEY); // Создайте клиент Supabase
         const { data, error } = await supabase
           .from("order_product") // Замените на имя вашей таблицы
           .insert(this.deliveryInfo);
@@ -212,7 +212,7 @@ export const productsStore = defineStore({
     },
     async postProductFav(idProduct: number) {
       const config = useRuntimeConfig();
-      const supabase = createClient(config.public.URL, config.public.KEY);
+      const supabase = createClient(config.public.SUPABASE_PUBLIC_URL, config.public.SUPABASE_KEY);
 
       // Get the current user ID from Supabase auth
       const user = supabase.auth.getUser();
@@ -241,7 +241,7 @@ export const productsStore = defineStore({
     },
     async getFavProduct() {
       const config = useRuntimeConfig();
-      const supabase = createClient(config.public.URL, config.public.KEY);
+      const supabase = createClient(config.public.SUPABASE_PUBLIC_URL, config.public.SUPABASE_KEY);
 
       // Get the current user ID from Supabase auth
       const user = supabase.auth.getUser();
@@ -261,7 +261,7 @@ export const productsStore = defineStore({
     },
     async deleteFavProduct(idProduct: number) {
       const config = useRuntimeConfig();
-      const supabase = createClient(config.public.URL, config.public.KEY);
+      const supabase = createClient(config.public.SUPABASE_PUBLIC_URL, config.public.SUPABASE_KEY);
 
       const { error } = await supabase
         .from("favourite")
