@@ -21,7 +21,6 @@ export const reviews = defineStore({
       try {
         const response = await review;
         this.reviews = response as unknown as Review[];
-        console.log("review", this.reviews);
       } catch (error) {
         console.error("Error fetching reviews:", error);
         throw error;

@@ -13,10 +13,11 @@
 
         <div class="max-w-screen-xl flex flex-col">
             <div class=" justify-center">
-                <div v-if="list.length >= 1" class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center justify-center ">
+                <div v-if="list.length >= 1 && loading"
+                    class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center justify-center ">
                     <card v-for="item in list" :card="item" :key="item.id" :list="listFavourite" class="w-72 h-80 " />
                 </div>
-                <span v-else-if="list.length === 0" class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center">
+                <span v-else class="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center">
                     <div v-for="item in store.page.itemsPerPage" :key="item" class="flex flex-col space-y-3">
                         <Skeleton class="h-[125px] w-[250px] rounded-xl" />
                         <div class="space-y-2">
@@ -25,8 +26,6 @@
                         </div>
                     </div>
                 </span>
-
-                <span v-else class="mt-4 text-center">Error!</span>
             </div>
 
             <pagination :props="page" class="m-auto mt-8" />
@@ -48,23 +47,25 @@ import banner from '~/components/banner/banner.vue';
 const store = productsStore();
 let list = ref<any>([]);
 
+let listFavourite = ref<any>([]);
+let loading = ref<boolean>(false);
+
 const page = reactive({
     total: 0,
     page: 0,
     totalPage: 0,
 });
 
-let listFavourite = ref<any>([]);
 
 watch(listFavourite, newValue => {
     console.log(newValue, "www")
 })
-
 onMounted(() => {
     store.fetchProductsFromDB();
     store.getFavProduct();
     watchEffect(() => {
         list.value = store.paginatedProducts;
+        loading.value = store.loading.products;
 
         page.total = store.page.itemsPerPage;
         page.page = store.page.currentPage;

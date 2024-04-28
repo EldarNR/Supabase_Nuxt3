@@ -19,6 +19,10 @@ export const productsStore = defineStore({
     cart: [] as Cart[],
     deliveryInfo: {},
     favourite: [] as favourite[] | null,
+
+    loading: {
+      products: false,
+    },
   }),
 
   getters: {
@@ -194,9 +198,12 @@ export const productsStore = defineStore({
       }
 
       try {
-        const supabase = createClient(config.public.SUPABASE_PUBLIC_URL, config.public.SUPABASE_KEY); // Создайте клиент Supabase
+        const supabase = createClient(
+          config.public.SUPABASE_PUBLIC_URL,
+          config.public.SUPABASE_KEY
+        ); // Создайте клиент Supabase
         const { data, error } = await supabase
-          .from("order_product") // Замените на имя вашей таблицы
+          .from("order") // Замените на имя вашей таблицы
           .insert(this.deliveryInfo);
 
         if (error) {
@@ -212,7 +219,10 @@ export const productsStore = defineStore({
     },
     async postProductFav(idProduct: number) {
       const config = useRuntimeConfig();
-      const supabase = createClient(config.public.SUPABASE_PUBLIC_URL, config.public.SUPABASE_KEY);
+      const supabase = createClient(
+        config.public.SUPABASE_PUBLIC_URL,
+        config.public.SUPABASE_KEY
+      );
 
       // Get the current user ID from Supabase auth
       const user = supabase.auth.getUser();
@@ -241,27 +251,38 @@ export const productsStore = defineStore({
     },
     async getFavProduct() {
       const config = useRuntimeConfig();
-      const supabase = createClient(config.public.SUPABASE_PUBLIC_URL, config.public.SUPABASE_KEY);
+      const supabase = createClient(
+        config.public.SUPABASE_PUBLIC_URL,
+        config.public.SUPABASE_KEY
+      );
 
       // Get the current user ID from Supabase auth
       const user = supabase.auth.getUser();
+      try {
+        let { data: favourite, error } = await supabase
+          .from("favourite")
+          .select("*")
+          .eq("user_uid", (await user).data.user?.id);
 
-      let { data: favourite, error } = await supabase
-        .from("favourite")
-        .select("*")
-        .eq("user_uid", (await user).data.user?.id);
-
-      if (error) {
-        console.error("Ошибка:", error);
-        // Handle errors more specifically (e.g., display user-friendly messages)
-      } else {
-        console.log("Продукт был успешно принят", favourite);
-        this.favourite = favourite;
+        if (error) {
+          console.error("Ошибка:", error);
+          // Handle errors more specifically (e.g., display user-friendly messages)
+        } else {
+          console.log("Продукт был успешно принят", favourite);
+          this.favourite = favourite;
+        }
+      } catch (e) {
+        console.error("ошибка запроса!", e);
+      } finally {
+        this.loading.products = true;
       }
     },
     async deleteFavProduct(idProduct: number) {
       const config = useRuntimeConfig();
-      const supabase = createClient(config.public.SUPABASE_PUBLIC_URL, config.public.SUPABASE_KEY);
+      const supabase = createClient(
+        config.public.SUPABASE_PUBLIC_URL,
+        config.public.SUPABASE_KEY
+      );
 
       const { error } = await supabase
         .from("favourite")

@@ -48,7 +48,7 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a v-for="item in navigation" :key="item.name" :href="item.href"
+              <a v-for="item in navigation" :key="item.id" :href="item.href"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{
                   item.name }}</a>
             </div>
@@ -75,8 +75,8 @@ export default defineComponent({
   },
   setup() {
     const navigation = ref([
-      { name: 'Home', href: '/' },
-      { name: 'Store', href: '/store' },
+      { id: 1, name: 'Home', href: '/' },
+      { id: 2,name: 'Store', href: '/store' },
       // Add more navigation items here
     ]);
     const mobileMenuOpen = ref(false); // This line creates a Vue ref named mobileMenuOpen and initializes it to false.

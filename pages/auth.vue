@@ -7,8 +7,7 @@
                 </CardTitle>
                 <CardContent>
                     <Auth :supabaseClient="supabaseClient" :appearance="{ theme: ThemeSupa }"
-                        :providers="['google', 'github', 'discord']" socialLayout="horizontal" class="mt-4"
-                        :redirectTo="'http://localhost:3000/'" />
+                        :providers="['google', 'github', 'discord']" socialLayout="horizontal" class="mt-4" />
                 </CardContent>
             </Card>
         </div>
@@ -16,25 +15,20 @@
 </template>
 
 <script setup lang="ts">
-// Import predefined theme
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { Auth } from '@nuxtbase/auth-ui-vue'
-import { createClient } from '@supabase/supabase-js'
+
+
+const supabaseClient = useSupabaseClient();
+const user = useSupabaseUser();
 const config = useRuntimeConfig()
-const supabaseClient = useSupabaseClient()
+const router = useRouter();
 
-// Используйте переменные среды или конфигурацию для URL-адресов
-const REDIRECT_TO_URL = config.public.URL;
-const FORGOTTEN_PASSWORD_URL = process.env.FORGOTTEN_PASSWORD_URL;
-
-const authView = ref('sign_in')
-
-
-const redirectTo = computed(() => {
-    return authView.value === 'forgotten_password' ? FORGOTTEN_PASSWORD_URL : REDIRECT_TO_URL
+onMounted(async () => {
+    watch(user, (user) => {
+        if (user) {
+            router.push('/')
+        }
+    })
 })
-
-
 </script>
-
-<style></style>
