@@ -61,7 +61,7 @@ export const productsStore = defineStore({
     async fetchProductsFromDB() {
       try {
         const response = await data;
-        this.products = response.products as unknown as Cart[];
+        this.products = response.products as Cart[];
         this.carusel = response.products.slice(0, 3) as Cart[];
         this.productforBanner();
       } catch (error) {
@@ -188,7 +188,10 @@ export const productsStore = defineStore({
 
     async postMessage() {
       const config = useRuntimeConfig();
-
+      const supabase = createClient(
+        config.public.SUPABASE_PUBLIC_URL,
+        config.public.SUPABASE_KEY
+      );
       // Проверка данных доставки на пустоту
       if (!this.deliveryInfo || Object.keys(this.deliveryInfo).length === 0) {
         console.error(
@@ -196,23 +199,12 @@ export const productsStore = defineStore({
         );
         return; // Прервать выполнение функции, если данные пусты
       }
-
       try {
-        const supabase = createClient(
-          config.public.SUPABASE_PUBLIC_URL,
-          config.public.SUPABASE_KEY
-        ); // Создайте клиент Supabase
         const { data, error } = await supabase
-          .from("order") // Замените на имя вашей таблицы
+          .from("order")
           .insert(this.deliveryInfo);
 
-        if (error) {
-          console.error("Ошибка при отправке данных в Supabase:", error);
-          // Обработайте ошибки более конкретно, например, покажите пользователю сообщение об ошибке в зависимости от типа ошибки
-        } else {
-          console.log("Данные успешно отправлены в Supabase:", data);
-          // Обработайте успешный ответ, например, очистите корзину
-        }
+        console.log("Данные успешно отправлены в Supabase:", data);
       } catch (e) {
         console.error("Неожиданная ошибка:", e);
       }
@@ -295,6 +287,27 @@ export const productsStore = defineStore({
       } else {
         console.log("Продукт был удаленно");
       }
+    },
+    mergeProducts() {
+      // Create a new array to store the merged objects
+      const mergedProducts: any[] = [];
+
+      // Iterate through the cart array
+      this.cart.forEach((product) => {
+        // Create a new object with the product's id, count, and deliveryInfo
+        const mergedProduct = {
+          product_id: product.id,
+          quality: product.count,
+          ...this.deliveryInfo, // Spread deliveryInfo properties
+        };
+
+        console.log(mergedProduct);
+
+        // Add the merged product to the mergedProducts array
+        mergedProducts.push(mergedProduct);
+      });
+
+      this.deliveryInfo = mergedProducts[0];
     },
   },
 });

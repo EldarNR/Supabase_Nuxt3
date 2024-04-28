@@ -62,7 +62,7 @@
                             placeholder="Any additional notes"></textarea>
                     </div>
 
-                    <NuxtLink @click="sendInfo(delivery)" to="/payment"
+                    <NuxtLink @click="submitForm" to="/payment"
                         class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
                         :disabled="isFormInvalid">
                         Go to payment
@@ -77,9 +77,19 @@
 import detail from '~/components/ui/detail/detail.vue';
 import { reactive, computed } from 'vue';
 import { productsStore } from '@/stores/index'
+import { createClient } from "@supabase/supabase-js";
+
+
+const config = useRuntimeConfig();
+const supabase = createClient(
+    config.public.SUPABASE_PUBLIC_URL,
+    config.public.SUPABASE_KEY
+);
+const user = useSupabaseUser().value;
 
 const store = productsStore();
 const delivery = reactive({
+    user_id: user.id,
     name: '',
     surname: '',
     city: '',
@@ -97,6 +107,7 @@ const sendInfo = (obj) => {
 
 const isFormInvalid = computed(() => {
     return (
+        !delivery.user_id ||
         !delivery.name ||
         !delivery.surname ||
         !delivery.city ||
@@ -108,7 +119,7 @@ const isFormInvalid = computed(() => {
 });
 
 const submitForm = () => {
-    // Ваш код для отправки данных формы
-    console.log('Delivery data:', delivery);
+    sendInfo(delivery);
+    store.mergeProducts();
 };
 </script>

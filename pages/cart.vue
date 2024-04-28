@@ -1,5 +1,5 @@
 <template>
-    <section >
+    <section>
         <detail :step="1" />
         <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
             <div class="mx-auto max-w-3xl">
@@ -79,10 +79,10 @@
                                 </div>
 
                                 <div class="flex justify-end">
-                                    <a href="#"
+                                    <NuxtLink to='/checkout'
                                         class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600">
                                         Checkout
-                                    </a>
+                                    </NuxtLink>
                                 </div>
                             </div>
                         </div>
