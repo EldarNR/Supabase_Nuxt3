@@ -5,6 +5,9 @@ import data from "../data/products.json";
 import { type Cart } from "../components/type/card";
 import { type favourite } from "~/components/type/favourite";
 
+var url = process.env.SUPABASE_URL;
+var key = process.env.SUPABASE_KEY;
+
 export const productsStore = defineStore({
   id: "products",
   state: () => ({
@@ -189,8 +192,8 @@ export const productsStore = defineStore({
     async postMessage() {
       const config = useRuntimeConfig();
       const supabase = createClient(
-        config.public.SUPABASE_URL,
-        config.public.SUPABASE_KEY
+        url as string,
+        key as string
       );
       // Проверка данных доставки на пустоту
       if (!this.deliveryInfo || Object.keys(this.deliveryInfo).length === 0) {
@@ -212,8 +215,8 @@ export const productsStore = defineStore({
     async postProductFav(idProduct: number) {
       const config = useRuntimeConfig();
       const supabase = createClient(
-        config.public.SUPABASE_URL,
-        config.public.SUPABASE_KEY
+        url as string,
+        key as string
       );
 
       // Get the current user ID from Supabase auth
@@ -244,8 +247,8 @@ export const productsStore = defineStore({
     async getFavProduct() {
       const config = useRuntimeConfig();
       const supabase = createClient(
-        config.public.SUPABASE_URL,
-        config.public.SUPABASE_KEY
+        url as string,
+        key as string
       );
 
       // Get the current user ID from Supabase auth
@@ -272,8 +275,8 @@ export const productsStore = defineStore({
     async deleteFavProduct(idProduct: number) {
       const config = useRuntimeConfig();
       const supabase = createClient(
-        config.public.SUPABASE_URL,
-        config.public.SUPABASE_KEY
+        url as string,
+        key as string
       );
 
       const { error } = await supabase
