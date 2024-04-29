@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
@@ -47,8 +48,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       SUPABASE_PUBLIC_URL: "https://jzkasefbtoupjkvkluyf.supabase.co",
-
-      SUPABASE_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6a2FzZWZidG91cGprdmtsdXlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk5OTQzMDIsImV4cCI6MjAyNTU3MDMwMn0.HBJ0_hh5X0bqqqb5-IC_EQg4b_vmUMuwCP3YmDlZ14I",
+      SUPABASE_KEY:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6a2FzZWZidG91cGprdmtsdXlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk5OTQzMDIsImV4cCI6MjAyNTU3MDMwMn0.HBJ0_hh5X0bqqqb5-IC_EQg4b_vmUMuwCP3YmDlZ14I",
     },
   },
 });
