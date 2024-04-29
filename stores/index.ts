@@ -187,9 +187,10 @@ export const productsStore = defineStore({
     },
 
     async postMessage() {
+      const config = useRuntimeConfig();
       const supabase = createClient(
-        process.env.SUPABASE_PUBLIC_URL as string,
-        process.env.SUPABASE_KEY as string
+        config.public.SUPABASE_URL,
+        config.public.SUPABASE_KEY
       );
       // Проверка данных доставки на пустоту
       if (!this.deliveryInfo || Object.keys(this.deliveryInfo).length === 0) {
@@ -209,9 +210,10 @@ export const productsStore = defineStore({
       }
     },
     async postProductFav(idProduct: number) {
+      const config = useRuntimeConfig();
       const supabase = createClient(
-        process.env.SUPABASE_PUBLIC_URL as string,
-        process.env.SUPABASE_KEY as string
+        config.public.SUPABASE_URL,
+        config.public.SUPABASE_KEY
       );
 
       // Get the current user ID from Supabase auth
@@ -240,9 +242,10 @@ export const productsStore = defineStore({
       }
     },
     async getFavProduct() {
+      const config = useRuntimeConfig();
       const supabase = createClient(
-        process.env.SUPABASE_PUBLIC_URL as string,
-        process.env.SUPABASE_KEY as string
+        config.public.SUPABASE_URL,
+        config.public.SUPABASE_KEY
       );
 
       // Get the current user ID from Supabase auth
@@ -267,10 +270,12 @@ export const productsStore = defineStore({
       }
     },
     async deleteFavProduct(idProduct: number) {
+      const config = useRuntimeConfig();
       const supabase = createClient(
-        process.env.SUPABASE_PUBLIC_URL as string,
-        process.env.SUPABASE_KEY as string
+        config.public.SUPABASE_URL,
+        config.public.SUPABASE_KEY
       );
+
       const { error } = await supabase
         .from("favourite")
         .delete()
