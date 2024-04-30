@@ -5,9 +5,11 @@ import data from "../data/products.json";
 import { type Cart } from "../components/type/card";
 import { type favourite } from "~/components/type/favourite";
 
-var url = process.env.SUPABASE_URL;
-var key = process.env.SUPABASE_KEY;
-
+var url =
+  process.env.SUPABASE_URL || "https://jzkasefbtoupjkvkluyf.supabase.co";
+var key =
+  process.env.SUPABASE_KEY ||
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6a2FzZWZidG91cGprdmtsdXlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk5OTQzMDIsImV4cCI6MjAyNTU3MDMwMn0.HBJ0_hh5X0bqqqb5-IC_EQg4b_vmUMuwCP3YmDlZ14I";
 export const productsStore = defineStore({
   id: "products",
   state: () => ({
@@ -64,6 +66,7 @@ export const productsStore = defineStore({
     async fetchProductsFromDB() {
       try {
         const response = await data;
+        console.log(response);
         this.products = response.products as Cart[];
         this.carusel = response.products.slice(0, 3) as Cart[];
         this.productforBanner();
@@ -191,10 +194,7 @@ export const productsStore = defineStore({
 
     async postMessage() {
       const config = useRuntimeConfig();
-      const supabase = createClient(
-        url as string,
-        key as string
-      );
+      const supabase = createClient(url as string, key as string);
       // Проверка данных доставки на пустоту
       if (!this.deliveryInfo || Object.keys(this.deliveryInfo).length === 0) {
         console.error(
@@ -214,10 +214,7 @@ export const productsStore = defineStore({
     },
     async postProductFav(idProduct: number) {
       const config = useRuntimeConfig();
-      const supabase = createClient(
-        url as string,
-        key as string
-      );
+      const supabase = createClient(url as string, key as string);
 
       // Get the current user ID from Supabase auth
       const user = supabase.auth.getUser();
@@ -246,11 +243,7 @@ export const productsStore = defineStore({
     },
     async getFavProduct() {
       const config = useRuntimeConfig();
-      const supabase = createClient(
-        url as string,
-        key as string
-      );
-
+      const supabase = createClient(url as string, key as string);
       // Get the current user ID from Supabase auth
       const user = supabase.auth.getUser();
       try {
@@ -274,10 +267,7 @@ export const productsStore = defineStore({
     },
     async deleteFavProduct(idProduct: number) {
       const config = useRuntimeConfig();
-      const supabase = createClient(
-        url as string,
-        key as string
-      );
+      const supabase = createClient(url as string, key as string);
 
       const { error } = await supabase
         .from("favourite")
